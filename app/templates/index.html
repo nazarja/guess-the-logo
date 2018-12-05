@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form action="" method="post" novalidate>
+    <!-- Login Form / Register Form -->
+    <form action="" method="POST" autocomplete="off" novalidate>
         {{ login_form.hidden_tag() }}
-        <div>{{ login_form.username() }}</div>
-        <div>{{ login_form.password() }}</div>
+        <!-- Username -->
+        <div>{{ login_form.username.label }}<br />{{ login_form.username() }}</div>
+        <div>{% for error in login_form.username.errors %}<span style="color: crimson;">{{ error }}</span>{% endfor %}</div>
+        <!-- Password -->
+        <div>{{ login_form.password.label }}<br />{{ login_form.password() }}</div>
+        <div>{% for error in login_form.password.errors %}<span style="color: crimson;">{{ error }}</span>{% endfor %}</div>
+        <!-- Submit -->
         <div>{{ login_form.submit() }}</div>
     </form>
 {% endblock %}
