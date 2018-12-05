@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <p>index works</p>
+    <form action="" method="post" novalidate>
+        {{ login_form.hidden_tag() }}
+        <div>{{ login_form.username() }}</div>
+        <div>{{ login_form.password() }}</div>
+        <div>{{ login_form.submit() }}</div>
+    </form>
 {% endblock %}
