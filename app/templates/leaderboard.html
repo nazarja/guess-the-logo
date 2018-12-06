@@ -1,4 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div>
+        {% for user in leaderboard %}
+            <div>
+                <span>name: {{ user.username }} &nbsp;</span>
+                <span>time: {{ user.best_time }}&nbsp;</span>
+                <span>score: {{ user.best_score }}&nbsp;</span>
+                <span>rating: {{ user.rating }}&nbsp;</span>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

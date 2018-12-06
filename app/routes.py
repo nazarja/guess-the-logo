@@ -1,6 +1,7 @@
 from app import app
 from flask import render_template, redirect, url_for
 from app.forms import LoginForm
+from app.helpers import get_leaderboard
 
 
 
@@ -28,7 +29,8 @@ def index():
 # leaderboard
 @app.route('/leaderboard')
 def leaderboard():
-    return render_template('leaderboard.html')
+    leaderboard = get_leaderboard()
+    return render_template('leaderboard.html', leaderboard=leaderboard)
 
 
 #=====================#
