@@ -1,1 +1,13 @@
-{ "leaderboard": []}
+{ "leaderboard": [
+    {"username": "jacob", "best_time": 180, "best_score": 30, "rating": 28200},
+    {"username": "sean", "best_time": 254, "best_score": 30, "rating": 27460},
+    {"username": "dave", "best_time": 322, "best_score": 28, "rating": 24780},
+    {"username": "anna", "best_time": 60, "best_score": 5, "rating": 4400},
+    {"username": "emily", "best_time": 296, "best_score": 25, "rating": 22040},
+    {"username": "chris", "best_time": 415, "best_score": 20, "rating": 15850},
+
+    {"username": "paul", "best_time": 245, "best_score": 24, "rating": 21550},
+    {"username": "elena", "best_time": 423, "best_score": 17, "rating": 12770},
+    {"username": "jack", "best_time": 271, "best_score": 14, "rating": 11290},
+    {"username": "sophia", "best_time": 196, "best_score": 13, "rating": 11040}
+]}
