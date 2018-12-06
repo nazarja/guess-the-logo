@@ -11,6 +11,6 @@
         <div>{{ login_form.password.label }}<br />{{ login_form.password() }}</div>
         <div>{% for error in login_form.password.errors %}<span style="color: crimson;">{{ error }}</span>{% endfor %}</div>
         <!-- Submit -->
-        <div>{{ login_form.submit() }}</div>
+        <div>{{ login_form.submit(class_="blue-button") }}</div>
     </form>
 {% endblock %}
