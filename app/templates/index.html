@@ -1,16 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <!-- Login Form / Register Form -->
-    <form action="" method="POST" autocomplete="off" novalidate>
-        {{ login_form.hidden_tag() }}
-        <!-- Username -->
-        <div>{{ login_form.username.label }}<br />{{ login_form.username() }}</div>
-        <div>{% for error in login_form.username.errors %}<span style="color: crimson;">{{ error }}</span>{% endfor %}</div>
-        <!-- Password -->
-        <div>{{ login_form.password.label }}<br />{{ login_form.password() }}</div>
-        <div>{% for error in login_form.password.errors %}<span style="color: crimson;">{{ error }}</span>{% endfor %}</div>
-        <!-- Submit -->
-        <div>{{ login_form.submit(class_="blue-button") }}</div>
-    </form>
+
+<div class="login-content">
+        <h2 class="heading">Login / Register</h2>
+        <!-- Login Form / Register Form -->
+        <form action="" method="POST" autocomplete="off" novalidate>
+            {{ login_form.hidden_tag() }}
+
+            <!-- Username -->
+            <div class="input">{{ login_form.username.label }}<br />{{ login_form.username() }}</div>
+            <div class="error">{% for error in login_form.username.errors %}<span>[ {{ error }} ]</span>{% endfor %}</div>
+            
+            <!-- Password -->
+            <div class="input">{{ login_form.password.label }}<br />{{ login_form.password() }}</div>
+            <div class="error">{% for error in login_form.password.errors %}<span>[ {{ error }} ]</span>{% endfor %}</div>
+            
+            <!-- Submit -->
+            <div class="submit-button">{{ login_form.submit(class_="blue-button") }}</div>
+        </form>
+    </div>
+
+    <!-- CLOUDS ANIMATION -->
+    <div id="clouds">
+        <img class="cloud x1" alt="cloud" src="{{ url_for( 'static' , filename='img/cloud.png') }}">
+        <img class="cloud x2" alt="cloud" src="{{ url_for( 'static' , filename='img/cloud.png') }}">
+        <img class="cloud x3" alt="cloud" src="{{ url_for( 'static' , filename='img/cloud.png') }}">
+        <img class="cloud x4" alt="cloud" src="{{ url_for( 'static' , filename='img/cloud.png') }}">
+        <img class="cloud x5" alt="cloud" src="{{ url_for( 'static' , filename='img/cloud.png') }}">
+    </div>
 {% endblock %}

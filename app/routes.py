@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, session
 from app.forms import LoginForm
 from app.helpers import get_leaderboard
 
@@ -17,7 +17,7 @@ def index():
 
     # login in user
     if login_form.validate_on_submit():
-        pass
+        session['user'] = login_form.username.data
 
     # default - render index.html
     return render_template('index.html', login_form=login_form)
@@ -39,6 +39,7 @@ def leaderboard():
 # logout
 @app.route('/logout')
 def logout():
+    session.clear()
     return redirect(url_for('index'))
 
 

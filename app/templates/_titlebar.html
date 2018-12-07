@@ -1,8 +1,20 @@
 {% block content %}
     <nav>
-        <ul>
-            <a href="{{ url_for('leaderboard') }}"><li>Leaderboard</li></a>
-            <a href="{{ url_for('logout') }}"><li>Logout</li></a>
-        </ul>
+        <!-- LEFT -->
+        <div id="nav-left">
+            <!-- LOGO -->
+            <a id="nav-logo" href="{{ url_for('index') }}">GUESS THE LOGO</a>
+        </div>
+
+        <!-- RIGHT -->
+        <div id="nav-right">
+            <!-- LEADERBOARD -->
+            <a id="nav-leaderboard" href="{{ url_for('leaderboard') }}">Leaderboard</a>
+
+            <!-- USER PROFILE -->
+            {% if 'user' in session %}
+                {% include '_profile.html' %}
+            {% endif %}
+        </div>
     </nav>
 {% endblock %}

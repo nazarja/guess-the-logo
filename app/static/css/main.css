@@ -1,8 +1,183 @@
 
+
 /*=====================
-    GENERAL / GLOBAL
+    VARIABLES / FONTS
 =====================*/
 
-main {
-   padding: 15px; 
+:root {
+    --white: #FAFAFA;
+    --blue: #3873d7;
+    --green: #269687;
+    --red: #9f2b32;
+    --purple: #7c4598;
+    --text-shadow: 1px 1px rgba(0,0,0,0.5);
 }
+
+@font-face {
+    src: url('../fonts/Crass.ttf');
+    font-family: 'Crass';
+}
+
+@font-face {
+    src: url('../fonts/Ubuntu.ttf');
+    font-family: 'Ubuntu';
+}
+
+
+/*=====================
+    GENERAL
+=====================*/
+
+body {
+    min-width: 300px;
+    max-width: 900px;
+    margin: auto;
+    padding: 15px;
+    background-color: var(--purple);
+    color: var(--white);
+    font-family: 'Ubuntu', 'Roboto', sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+a {
+    transition: 0.3s;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+/* Footer */
+#ref-link {
+    color: var(--white);
+    text-decoration: underline;
+    height: 30px;
+    margin-top: 30px;
+}
+
+
+
+/*=====================
+    HEADER
+=====================*/
+
+header {
+    position: relative;
+    margin-bottom: 60px;
+}
+
+nav div {
+    display: inline-block;
+    height: 80px;
+    line-height: 80px;
+
+}
+
+
+/* LOGO */
+#nav-logo {
+    font-family: 'Crass', monospace;
+    color: var(--white);
+    text-decoration: none;
+    text-shadow: var(--text-shadow);
+    font-size: 1em;
+}
+
+#nav-left {
+    position: relative;
+    top: 1px;
+}
+
+/* PROFILE */
+#nav-right {
+    float: right;
+    font-size: 1em;
+}
+
+#nav-leaderboard {
+    color: var(--white);
+}
+
+.fa-user-circle {
+    position: relative;
+    top: 5px;
+    margin-left: 12px;
+    font-size: 2em;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.paper-profile {
+    display: none;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    font-size: .75rem;
+    width: 175px;
+    height: 200px;
+    font-family: 'Ubuntu', 'Roboto', sans-serif;
+}
+
+.profile-data {
+    color: var(--red);
+    float: right;
+}
+
+#logout a {
+    float: right;
+}
+
+
+/*=====================
+    INDEX
+=====================*/
+
+.login-content  {
+    /* width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+}
+
+
+.heading {
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow: var(--text-shadow);
+}
+
+input[type="text"], input[type='password'] {
+    min-width: 270px;
+}
+
+.input {
+    margin: 10px auto;
+}
+
+.submit-button {
+    margin-top: 30px;
+}
+
+.error {
+    color: var(--white);
+    font-size: 1em;
+}
+
+#clouds {
+    display: none;
+}
+
+
+
+
+

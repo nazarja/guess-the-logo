@@ -1,0 +1,69 @@
+@media screen and (min-width: 900px) and (hover:hover) {
+
+    body {
+        overflow: hidden;
+    }
+
+    #clouds {
+        display: block;
+        position: relative;
+        top: 150px;
+        z-index: -1;
+    }
+
+    /* Cloud background */
+    .cloud {
+        position: absolute;
+        top: -15px; 
+        left: 10px;
+    }
+
+    /* Individual cloud styles */
+    .x1 {
+        top: -15px; 
+        left: 100px;
+        height: auto;
+        width: 150px;
+        opacity: 1;
+        animation: moveclouds 15s linear infinite;
+    }
+    .x2 {
+        top: 15px; 
+        left: 200px;
+        height: auto;
+        width: 100px;
+        opacity: 0.8;
+        animation: moveclouds 23s linear infinite;
+    }
+    .x3 {
+        left: -250px; 
+        top: -200px;
+        height: auto;
+        width: 130px;
+        opacity: 0.7;
+        animation: moveclouds 19s linear infinite;
+    }
+    .x4 {
+        left: 470px;
+        top: -250px;
+        height: auto;
+        width: 120px;
+        opacity: 0.3;
+        animation: moveclouds 17s linear infinite;
+    }
+    .x5 {
+        left: -150px; 
+        top: -150px;
+        height: auto;
+        width: 90px;
+        opacity: 0.2;
+        animation: moveclouds 20s linear infinite;
+    }
+
+    /* Cloud Keyframe Animation */
+    @keyframes moveclouds {
+        0% {margin-left: 100vw;}
+        100% {margin-left: -100vw;}
+    }
+
+}

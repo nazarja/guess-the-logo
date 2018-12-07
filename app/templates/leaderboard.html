@@ -2,8 +2,15 @@
 
 {% block content %}
     <div>
+        <h2>Leaderboard</h2>
+        <!-- ITERATE LEADERBOARD -->
         {% for user in leaderboard %}
-            <div>
+            {% if session.username == user.username %}
+            <div class="leaderboard-ranking leaderboard-user"></div>
+            {% else %}
+            <div class="leaderboard-ranking">
+            {% endif %}
+                <span>ranking: {{ loop.index }} &nbsp;</span>
                 <span>name: {{ user.username }} &nbsp;</span>
                 <span>time: {{ user.best_time }}&nbsp;</span>
                 <span>score: {{ user.best_score }}&nbsp;</span>
