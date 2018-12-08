@@ -71,6 +71,10 @@ a:hover {
     text-shadow: var(--text-shadow);
 }
 
+.text-right {
+    text-align: right;
+}
+
 #clouds {
     display: none;
 }
@@ -82,6 +86,10 @@ a:hover {
     margin-top: 30px;
 }
 
+.fade-slide-in {
+    margin-top: 100px;
+    opacity: 0;
+}
 
 /*==========================
     HEADER
@@ -90,7 +98,6 @@ a:hover {
 
 header {
     position: relative;
-    margin-bottom: 60px;
 }
 
 nav div {
@@ -122,7 +129,7 @@ nav div {
     font-size: 1em;
 }
 
-#nav-leaderboard {
+#nav-leaderboard, #nav-home {
     color: var(--white);
 }
 
@@ -212,6 +219,10 @@ nav div {
 
 /* USER INFO / PLAY GAME */
 
+#index-user-info {
+    margin-top: 54px;
+}
+
 #index-user-info .fas {
     width: 30px;
 }
@@ -221,8 +232,43 @@ nav div {
 
 
 
+/*==========================
+    LEADERBOARD
+==========================*/
+
+
+#table {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+tr, th, td {
+    padding: 5px 0;
+}
+
+tr:nth-child(odd) {
+    background-color: rgba(255,255,255,0.1);
+}
+
+tr:nth-child(even) {
+    background-color: rgba(0,0,0,0.1);
+}
+
+th {
+    background-color: rgb(89, 47, 105);
+}
 
 
 
 
+/*==========================
+    MISC MEDIA QUERY
+==========================*/
+
+@media screen and (max-width: 340px) {
+    #nav-right {
+        font-size: 0.8em;
+    }
+}
 

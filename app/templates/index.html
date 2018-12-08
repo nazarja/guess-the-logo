@@ -47,7 +47,7 @@
                 <br />
 
                 <!-- GO TO GAME BUTTON -->
-                <button class="blue-button">PLAY GAME</button>
+                <a href="{{ url_for('index') }}"><button class="blue-button">PLAY GAME</button></a>
             {% endif %}
         </div>
 
@@ -59,11 +59,12 @@
             <ul>
                 <li>You will be presented with 30 brand logos</li>
                 <li>You will be timed from start to finish</li>
-                <li>You may skip a answer, but you can't go back</li>
+                <li>You may skip an answer, but you can't go back</li>
                 <li>You may attempt a question multiple times</li>
                 <li>You will be rated on your score minus your time</li>
                 <li>If you quit, your score will not be recorded</li>
             </ul>
+            <p><i>Good Luck!</i></p>
         </div>
     </div>
 </div>

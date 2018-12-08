@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, redirect, url_for, session
+from flask import render_template, redirect, url_for, session, request
 from app.forms import LoginForm
 from app.helpers import get_leaderboard
 
@@ -14,6 +14,7 @@ def index():
 
     # new instance of LoginForm
     login_form = LoginForm()
+    session['url'] = 'home'
 
     # login in user
     if login_form.validate_on_submit():
@@ -30,6 +31,7 @@ def index():
 @app.route('/leaderboard')
 def leaderboard():
     leaderboard = get_leaderboard()
+    session['url'] = 'leaderboard'
     return render_template('leaderboard.html', leaderboard=leaderboard)
 
 

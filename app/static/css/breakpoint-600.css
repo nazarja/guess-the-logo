@@ -1,14 +1,12 @@
 
 
 /*==========================
-   600px min-width breakpoint rules
-==========================*/
-
-
-/*==========================
     HEADER
 ==========================*/
 
+header {
+    margin-bottom: 60px;
+}
 
 /*
 *   Increase font-size for legibility on larger devices
@@ -35,16 +33,10 @@
 }
 
 .index-right, .index-left {
-    flex-grow: 1;
     margin-top: 0;
-}
-
-.index-left {
-    margin-left: 0;
 }
 
 .index-right {
     margin-left: 4%;
-    margin-right: 0;
 }
 

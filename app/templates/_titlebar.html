@@ -7,7 +7,11 @@
     
     <!-- LEADERBOARD / PROFILE TAB-->
     <div id="nav-right">
+        {% if url_for(request.endpoint) == '/leaderboard' %}
+        <a id="nav-home" href="{{ url_for('index') }}">Home</a>
+        {% else %}
         <a id="nav-leaderboard" href="{{ url_for('leaderboard') }}">Leaderboard</a>
+        {% endif %}
 
 
         <!-- PROFILE -->

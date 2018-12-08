@@ -1,5 +1,24 @@
 
 /*============================
+    INDEX
+============================*/
+
+
+.index-right, .index-left {
+    flex-grow: 1;
+}
+
+.index-left {
+    margin-left: 0;
+}
+
+.index-right {
+    margin-right: 0;
+}
+
+
+
+/*============================
     CLOUDS ANIMATION
 ============================*/
 
