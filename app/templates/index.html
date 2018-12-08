@@ -1,32 +1,74 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div id="index">
 
-<div class="login-content">
-        <h2 class="heading">Login / Register</h2>
-        <!-- Login Form / Register Form -->
-        <form action="" method="POST" autocomplete="off" novalidate>
-            {{ login_form.hidden_tag() }}
+        <div id="index-wrapper">
+        <!-- LEFT CONTENT -->
+        <div class="index-left index-content">
 
-            <!-- Username -->
-            <div class="input">{{ login_form.username.label }}<br />{{ login_form.username() }}</div>
-            <div class="error">{% for error in login_form.username.errors %}<span>[ {{ error }} ]</span>{% endfor %}</div>
-            
-            <!-- Password -->
-            <div class="input">{{ login_form.password.label }}<br />{{ login_form.password() }}</div>
-            <div class="error">{% for error in login_form.password.errors %}<span>[ {{ error }} ]</span>{% endfor %}</div>
-            
-            <!-- Submit -->
-            <div class="submit-button">{{ login_form.submit(class_="blue-button") }}</div>
-        </form>
+            <!-- LOGIN / REGISTER FORM -->
+            {% if not 'user' in session%}
+                <h2 class="heading">Login / Register</h2>
+
+                <!-- FORM -->
+                <form action="" method="POST" autocomplete="off" novalidate>
+                    {{ login_form.hidden_tag() }}
+
+                    <!-- USERNAME -->
+                    <div class="input">{{ login_form.username.label }}<br />{{ login_form.username() }}</div>
+                    <!-- hide if no errors -->
+                    {% if login_form.username.errors %}
+                        <div class="error">{% for error in login_form.username.errors %}<span>[ {{ error }} ]</span>{% endfor %}</div>
+                    {% endif %}
+                    <!-- PASSWORD -->
+                    <div class="input">{{ login_form.password.label }}<br />{{ login_form.password() }}</div>
+                    <!-- hide if no errors -->
+                    {% if login_form.password.errors %}
+                        <div class="error">{% for error in login_form.password.errors %}<span>[ {{ error }} ]</span>{% endfor %}</div>
+                    {% endif %}
+                    <!-- SUBMIT -->
+                    <div class="submit-button">{{ login_form.submit(class_="blue-button") }}</div>
+                </form>
+
+
+
+            <!-- USER INFORMATION / PLAY GAME -->
+            {% else %}
+                <h2 class="heading">Welcome, {{ session.user.capitalize() }}</h2>
+
+                <!-- USER SCORES -->
+                <div id="index-user-info">
+                    <p><i class="fas fa-dice"></i>Times Played: 0</p>
+                    <p><i class="fas fa-stopwatch"></i>Best Time: 0</p>
+                    <p><i class="fas fa-hat-wizard"></i>Best Score: 0</p>
+                    <p><i class="fas fa-star"></i>Rating: 0</p>
+                </div>
+                <br />
+
+                <!-- GO TO GAME BUTTON -->
+                <button class="blue-button">PLAY GAME</button>
+            {% endif %}
+        </div>
+
+
+
+        <!-- RIGHT CONTENT / GAME RULES-->
+        <div class="index-right index-content">
+            <h2 class="heading">How To Play</h2>
+            <ul>
+                <li>You will be presented with 30 brand logos</li>
+                <li>You will be timed from start to finish</li>
+                <li>You may skip a answer, but you can't go back</li>
+                <li>You may attempt a question multiple times</li>
+                <li>You will be rated on your score minus your time</li>
+                <li>If you quit, your score will not be recorded</li>
+            </ul>
+        </div>
     </div>
+</div>
 
     <!-- CLOUDS ANIMATION -->
-    <div id="clouds">
-        <img class="cloud x1" alt="cloud" src="{{ url_for( 'static' , filename='img/cloud.png') }}">
-        <img class="cloud x2" alt="cloud" src="{{ url_for( 'static' , filename='img/cloud.png') }}">
-        <img class="cloud x3" alt="cloud" src="{{ url_for( 'static' , filename='img/cloud.png') }}">
-        <img class="cloud x4" alt="cloud" src="{{ url_for( 'static' , filename='img/cloud.png') }}">
-        <img class="cloud x5" alt="cloud" src="{{ url_for( 'static' , filename='img/cloud.png') }}">
-    </div>
+    {% include '_clouds.html' %}
+
 {% endblock %}

@@ -1,20 +1,27 @@
 {% block content %}
-    <nav>
-        <!-- LEFT -->
-        <div id="nav-left">
-            <!-- LOGO -->
-            <a id="nav-logo" href="{{ url_for('index') }}">GUESS THE LOGO</a>
-        </div>
+    <!--LOGO -->
+    <div id="nav-left">
+        <a id="nav-logo" href="{{ url_for('index') }}">GUESS THE LOGO</a>
+    </div>
 
-        <!-- RIGHT -->
-        <div id="nav-right">
-            <!-- LEADERBOARD -->
-            <a id="nav-leaderboard" href="{{ url_for('leaderboard') }}">Leaderboard</a>
+    
+    <!-- LEADERBOARD / PROFILE TAB-->
+    <div id="nav-right">
+        <a id="nav-leaderboard" href="{{ url_for('leaderboard') }}">Leaderboard</a>
 
-            <!-- USER PROFILE -->
-            {% if 'user' in session %}
-                {% include '_profile.html' %}
-            {% endif %}
+
+        <!-- PROFILE -->
+        {% if 'user' in session %}
+        <div id="profile">
+            <i class="fas fa-user-circle"></i>
+            <div class="paper paper-profile">
+                <p>Times Played: <span class="profile-data">N/A</span></p>
+                <p>Best Time: <span class="profile-data">N/A</span></p>
+                <p>Best Score: <span class="profile-data">N/A</span></p>
+                <p>Rating: <span class="profile-data">N/A</span></p>
+                <p id="logout"><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> &nbsp; Logout </a></p>
+            </div>
         </div>
-    </nav>
+        {% endif %}
+    </div>
 {% endblock %}

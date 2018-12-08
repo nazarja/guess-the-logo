@@ -1,69 +1,87 @@
-@media screen and (min-width: 900px) and (hover:hover) {
 
+/*============================
+    CLOUDS ANIMATION
+============================*/
+
+/* 
+  On smaller screens body:overflow is a problem,
+  solution is to only show animation onscreens above 900px
+  and mouse capable, which rules out small touchscreens
+*/
+
+@media screen and (hover:hover) {
+
+    /* Hide scroll bar */
     body {
         overflow: hidden;
     }
 
+    /* Container for clouds */
     #clouds {
         display: block;
         position: relative;
-        top: 150px;
+        top: 200px;
         z-index: -1;
     }
-
-    /* Cloud background */
     .cloud {
         position: absolute;
-        top: -15px; 
-        left: 10px;
+        top: 0; 
+        left: 0;
     }
 
-    /* Individual cloud styles */
+    /* 
+    *  Individual cloud styles - 
+    *  Each cloud is given a different:
+    *  starting position, size, opacity and speed
+    */
     .x1 {
-        top: -15px; 
+        top: -130px; 
         left: 100px;
         height: auto;
         width: 150px;
         opacity: 1;
-        animation: moveclouds 15s linear infinite;
+        animation: moveclouds 20s linear infinite;
     }
     .x2 {
-        top: 15px; 
+        top: -20px; 
         left: 200px;
         height: auto;
-        width: 100px;
+        width: 140px;
         opacity: 0.8;
-        animation: moveclouds 23s linear infinite;
+        animation: moveclouds 30s linear infinite;
     }
     .x3 {
+        top: -250px;
         left: -250px; 
-        top: -200px;
         height: auto;
         width: 130px;
         opacity: 0.7;
-        animation: moveclouds 19s linear infinite;
+        animation: moveclouds 25s linear infinite;
     }
     .x4 {
+        top: -190px;
         left: 470px;
-        top: -250px;
         height: auto;
         width: 120px;
-        opacity: 0.3;
-        animation: moveclouds 17s linear infinite;
+        opacity: 0.5;
+        animation: moveclouds 23s linear infinite;
     }
     .x5 {
+        top: -20px;
         left: -150px; 
-        top: -150px;
         height: auto;
         width: 90px;
-        opacity: 0.2;
-        animation: moveclouds 20s linear infinite;
+        opacity: 0.3;
+        animation: moveclouds 25s linear infinite;
     }
 
-    /* Cloud Keyframe Animation */
+    /* 
+    *  Cloud Keyframe Animation 
+    *  Moves clouds from right hand side off screen
+    *  to left hand side offscreen
+    */
     @keyframes moveclouds {
         0% {margin-left: 100vw;}
         100% {margin-left: -100vw;}
     }
-
 }

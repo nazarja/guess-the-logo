@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- META -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Logo Quiz</title>
+    <meta name="description" content="Play the Guess the Logo Quiz, How well do you know your brands? Think you can guess all 30 logos?">
+    <link rel="icon" href="{{ url_for('static', filename='assets/favicon.png') }}" sizes="32x32">
+    <title>Guess The Logo</title>
     <!-- CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/flat-remix.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" media="screen and (min-width: 600px)" href="{{ url_for('static', filename='css/breakpoint-600.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/clouds.css') }}">
+    <link rel="stylesheet" media="screen and (min-width: 900px)" href="{{ url_for('static', filename='css/clouds.css') }}">
 </head>
 <body>
 
+
     <!-- HEADER -->
     <header>
-        {% include '_titlebar.html' %}
+        <nav>
+            {% include '_titlebar.html' %}
+        </nav>
     </header>
+
 
     <!-- MAIN -->
     <main>
@@ -25,10 +32,12 @@
         {% endblock %}
     </main>
 
+
     <!-- FOOTER -->
     <footer>
-        <span>Design & Code by <a  id="ref-link" href="http://seanmurphy.eu">Sean Murphy</a></span>
+        <span><i class="fas fa-code"></i> & <i class="fas fa-paint-brush"></i> by <a  id="ref-link" href="http://seanmurphy.eu">Sean Murphy</a></span>
     </footer>
+
 
     <!-- JAVASCRIPT -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
