@@ -262,6 +262,34 @@ th {
 
 
 
+
+/*==========================
+    404 / 500 ERRORS
+==========================*/
+
+.flask-error {
+    font-size: 2em;
+    margin-top: 8vh;
+}
+
+.fa-globe-americas {
+    text-align: center;
+    display: block;
+    font-size: 2em;
+    animation: rotateglobe 2s linear infinite;
+}
+
+@keyframes rotateglobe {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+
+
 /*==========================
     MISC MEDIA QUERY
 ==========================*/

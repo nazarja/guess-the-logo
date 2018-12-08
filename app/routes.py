@@ -14,14 +14,13 @@ def index():
 
     # new instance of LoginForm
     login_form = LoginForm()
-    session['url'] = 'home'
 
     # login in user
     if login_form.validate_on_submit():
         session['user'] = login_form.username.data
 
     # default - render index.html
-    return render_template('index.html', login_form=login_form)
+    return render_template('index.html', login_form=login_form, endpoint="index")
 
 
 #=====================#
@@ -30,9 +29,10 @@ def index():
 # leaderboard
 @app.route('/leaderboard')
 def leaderboard():
+
+    # new instance of Leaderboard
     leaderboard = get_leaderboard()
-    session['url'] = 'leaderboard'
-    return render_template('leaderboard.html', leaderboard=leaderboard)
+    return render_template('leaderboard.html', leaderboard=leaderboard, endpoint="leaderboard")
 
 
 #=====================#

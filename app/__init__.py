@@ -8,4 +8,4 @@ app.config.from_object(Config)
 
 
 # import app mvc modules
-from app import routes
+from app import routes, errors

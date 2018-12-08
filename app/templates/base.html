@@ -8,6 +8,7 @@
     <meta name="description" content="Play the Guess the Logo Quiz, How well do you know your brands? Think you can guess all 30 logos?">
     <link rel="icon" href="{{ url_for('static', filename='assets/favicon.png') }}" sizes="32x32">
     <title>Guess The Logo</title>
+    
     <!-- CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/flat-remix.min.css') }}">
@@ -21,7 +22,8 @@
     <!-- HEADER -->
     <header>
         <nav>
-            {% include '_titlebar.html' %}
+            <!-- TITLEBAR -->
+            {% include 'partials/_titlebar.html' %}
         </nav>
     </header>
 
@@ -30,6 +32,9 @@
     <main>
         {% block content %}
         {% endblock %}
+
+        <!-- CLOUDS ANIMATION -->
+        {% include 'partials/_clouds.html' %}
     </main>
 
 
