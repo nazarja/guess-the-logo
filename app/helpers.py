@@ -1,4 +1,4 @@
-import json
+import json, random
 
 
 
@@ -19,3 +19,8 @@ def get_leaderboard():
 
 
         
+def get_game():
+    with open('app/data/game.json') as game_file:
+        game = json.load(game_file)
+        random.shuffle(game['game'])
+        return game['game']

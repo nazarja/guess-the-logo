@@ -6,22 +6,27 @@
 
         <!-- STATS -->
         <div id="current-game">
-            <span class="current-stats"><i class="fas fa-question-circle"></i>Question: 0 / 30</span>
-            <span class="current-stats"><i class="fas fa-stopwatch"></i>Time: 0:00</span>
+            <span class="current-stats"><i class="fas fa-question-circle"></i>Question: {{ session.index }} / 30</span>
             <span class="current-stats"><i class="fas fa-check-circle"></i>Correct: 0 / 30</span>
+            <span class="current-stats"><i class="fas fa-stopwatch"></i>Time: 0:00</span>
         </div>
 
 
         <!-- LOGO IMAGE -->
-        <img id="brand-image" src="{{ url_for( 'static', filename='img/Lacoste.png' ) }}" alt="">
+        <div id="logo-container" class="with-shadow">
+            <img id="logo-image" src="{{ url_for( 'static', filename=session.game[session.index].image_url ) }}" alt="">
+        </div>
 
 
 
         <!-- ANSWER FORM -->
         <form id="game-form" action="" method="POST" autocomplete="off" novalidate>
             <div id="answer-input" class="input">{{ answer_form.answer.label }}<br />{{ answer_form.answer() }}</div>
-            <div>{{ answer_form.submit(class_="green-button") }}</div>
-            <a href="{{ url_for('game') }}"><button class="red-button">pass</button></a>
+
+            <div id="buttons-container">
+                <div>{{ answer_form.submit(class_="green-button") }}</div>
+                <a id="pass-question" href="{{ url_for('game') }}"><button class="red-button">pass</button></a>
+            </div>
         </form>
     </div>
 {% endblock %}

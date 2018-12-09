@@ -210,6 +210,64 @@ nav div {
     GAME
 ==========================*/
 
+#game {
+    max-width: 500px;
+    margin: auto;
+}
+
+#current-game .current-stats {
+    display: inline-block;
+    width: 164px;
+    margin-bottom: 10px;
+}
+
+.current-stats i {
+    margin-right: 8px;
+}
+
+#logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 270px;
+    max-width: 500px;
+    padding: 40px;
+    margin: 20px auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+}
+
+#logo-image {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#game-form {
+    margin-bottom: 30px;
+}
+
+#answer {
+    width: 100%;
+    padding-left: 30px;
+}
+
+#buttons-container {
+    text-align: center;
+}
+
+#buttons-container  * {
+    display: inline-block;
+    margin-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+#pass-question:hover {
+    opacity: 1;
+}
+
 
 
 /*==========================
