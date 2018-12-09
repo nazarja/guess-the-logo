@@ -4,7 +4,6 @@
     VARIABLES / FONTS
 ==========================*/
 
-
 /* Variables on Root */
 :root {
     --white: #FAFAFA;
@@ -28,12 +27,9 @@
 
 
 
-
-
 /*==========================
     GENERAL / GLOBAL STYLES
 ==========================*/
-
 
 body {
     display: flex;
@@ -43,16 +39,12 @@ body {
     min-height: 100vh;
     margin: auto;
     padding: 15px;
-    background-color: var(--purple);
     color: var(--white);
     font-family: 'Ubuntu', 'Roboto', sans-serif;
     font-size: 0.9rem;
+    background-color: var(--purple);
 }
 
-/* 
-*  Will fill up availible space if need
-*  to push the footer to the bottom
-*/
 main {
     flex: 1;
 }
@@ -65,25 +57,16 @@ a:hover {
     opacity: 0.7;
 }
 
-.heading {
-    font-weight: bold;
-    font-size: 28px;
-    text-shadow: var(--text-shadow);
-}
 
-.text-right {
-    text-align: right;
-}
-
+/* SHARED STYLES */
 #clouds {
     display: none;
 }
 
-#ref-link {
-    color: var(--white);
-    text-decoration: underline;
-    height: 30px;
-    margin-top: 30px;
+.heading {
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: var(--text-shadow);
 }
 
 .fade-slide-in {
@@ -91,12 +74,13 @@ a:hover {
     opacity: 0;
 }
 
+
+
 /*==========================
-    HEADER
+    NAVIGATION
 ==========================*/
 
-
-header {
+nav {
     position: relative;
 }
 
@@ -108,7 +92,6 @@ nav div {
 }
 
 /* LOGO */
-
 #nav-left {
     position: relative;
     top: 1px;
@@ -116,17 +99,17 @@ nav div {
 
 #nav-logo {
     font-family: 'Crass', monospace;
-    color: var(--white);
+    font-size: 1em;
     text-decoration: none;
     text-shadow: var(--text-shadow);
-    font-size: 1em;
+    color: var(--white);
 }
 
 /* PROFILE */
 
 #nav-right {
+    font-size: 0.8em;
     float: right;
-    font-size: 1em;
 }
 
 #nav-leaderboard, #nav-home {
@@ -142,7 +125,6 @@ nav div {
     font-size: 2em;
     transition: 0.3s;
     cursor: pointer;
-    transition: 0.3s;
 }
 
 .fa-user-circle:hover {
@@ -154,10 +136,10 @@ nav div {
     position: absolute;
     top: 55px;
     right: 0;
-    font-size: .75rem;
-    width: 175px;
     height: 200px;
+    width: 175px;
     font-family: 'Ubuntu', 'Roboto', sans-serif;
+    font-size: .75rem;
 }
 
 .profile-data {
@@ -171,12 +153,9 @@ nav div {
 
 
 
-
-
 /*==========================
     INDEX
 ==========================*/
-
 
 .index-content {
     max-width: 350px;
@@ -184,41 +163,39 @@ nav div {
     margin-bottom: 60px;
 }
 
-/* LOGIN / REGISTER FORM */
-
-.index-content input[type='text'],
-.index-content input[type='password'] {
-    width: 95%;
+/* FORM CONTENT */
+.index-left input[type='text'],
+.index-left input[type='password'] {
+    width: 100%;
 }
 
 .index-left .error {
-    color: white;
-    background-color: #333;
+    max-width: 100%;
     padding-left: 15px;
-    max-width: 95%;
     padding: 5px 5px 5px 15px;
     border-radius: 4px;
+    color: white;
+    background-color: #333;
     box-shadow: 0px 3px 5px 0px rgba(255,255,255,0.1);
 }
 
-.submit-button {
+.index-lef .submit-button {
     margin-top: 30px;
 }
 
-/* GAME RULES */
+/* HOW TO PLAY */
 .index-right ul {
-    list-style-type: circle;
     padding-left: 18px;
     padding-top: 30px;
+    list-style-type: circle;
 }
 
 .index-right li {
-    font-size: .9rem;
     padding-bottom: 15px;
+    font-size: .9rem;
 }
 
-/* USER INFO / PLAY GAME */
-
+/* USER INFO */
 #index-user-info {
     margin-top: 54px;
 }
@@ -229,35 +206,9 @@ nav div {
 
 
 
-
-
-
 /*==========================
-    404 / 500 ERRORS
+    GAME
 ==========================*/
-
-#brand-logo {
-    width: auto;
-    height: 25vh;
-    padding: 30px;
-    margin: auto;
-    border-radius: 10px;
-    border: 2px solid black;
-    text-align: center;
-    box-sizing: border-box;
-    background-color: white;
-}
-
-#brand-image {
-    max-height: 100%;
-    max-width: 100%;
-}
-
-#skip-question {
-    text-decoration: none;
-}
-
-
 
 
 
@@ -265,15 +216,22 @@ nav div {
     LEADERBOARD
 ==========================*/
 
-
-#table {
+#leaderboard table {
     width: 100%;
     text-align: center;
-    margin-bottom: 60px;
+    background-color: var(--purple);
 }
 
-tr, th, td {
+#leaderboard .blue-button {
+    margin: 40px 0;
+}
+
+th, tr, td {
     padding: 5px 0;
+}
+
+th {
+    background-color: rgb(89, 47, 105);
 }
 
 tr:nth-child(odd) {
@@ -284,12 +242,6 @@ tr:nth-child(even) {
     background-color: rgba(0,0,0,0.1);
 }
 
-th {
-    background-color: rgb(89, 47, 105);
-}
-
-
-
 
 
 /*==========================
@@ -297,14 +249,14 @@ th {
 ==========================*/
 
 .flask-error {
-    font-size: 2em;
     margin-top: 8vh;
+    font-size: 2em;
 }
 
 .fa-globe-americas {
-    text-align: center;
     display: block;
     font-size: 2em;
+    text-align: center;
     animation: rotateglobe 2s linear infinite;
 }
 
@@ -320,12 +272,17 @@ th {
 
 
 /*==========================
-    MISC MEDIA QUERY
+    FOOTER
 ==========================*/
 
-@media screen and (max-width: 340px) {
-    #nav-right {
-        font-size: 0.8em;
-    }
+footer {
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
 }
 
+#ref-link {
+    height: 30px;
+    margin-top: 30px;
+    text-decoration: underline;
+    color: var(--white);
+}

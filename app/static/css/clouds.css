@@ -1,38 +1,4 @@
 
-/*============================
-    INDEX
-============================*/
-
-
-.index-right, .index-left {
-    flex-grow: 1;
-}
-
-.index-left {
-    margin-left: 0;
-}
-
-.index-right {
-    margin-right: 0;
-}
-
-
-
-
-
-/*==========================
-    404 / 500 ERRORS
-==========================*/
-
-
-.flask-error {
-    font-size: 3em;
-}
-
-
-
-
-
 
 /*============================
     CLOUDS ANIMATION
@@ -55,7 +21,7 @@
     #clouds {
         display: block;
         position: absolute;
-        bottom: 125px;
+        bottom: 130px;
         z-index: -1;
     }
     .cloud {

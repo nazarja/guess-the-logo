@@ -2,14 +2,16 @@
 
 {% block content %}
     <div id="index">
-
         <div id="index-wrapper">
+
+
             <!-- LEFT CONTENT -->
             <div class="index-left index-content">
 
                 <!-- LOGIN / REGISTER FORM -->
                 {% if not 'user' in session%}
                     <h2 class="heading">Login / Register</h2>
+
 
                     <!-- FORM -->
                     <form action="" method="POST" autocomplete="off" novalidate>
@@ -46,6 +48,7 @@
                     </div>
                     <br />
 
+
                     <!-- GO TO GAME BUTTON -->
                     <a href="{{ url_for('game') }}"><button class="blue-button">play game</button></a>
                 {% endif %}
@@ -57,16 +60,15 @@
             <div class="index-right index-content">
                 <h2 class="heading">How To Play</h2>
                 <ul>
-                    <li>You will be presented with 30 brand logos</li>
-                    <li>You will be timed from start to finish</li>
-                    <li>You may skip an answer, but you can't go back</li>
-                    <li>You may attempt a question multiple times</li>
-                    <li>You will be rated on your score minus your time</li>
-                    <li>If you quit, your score will not be recorded</li>
+                    <li>You will be presented with <strong>30 brand logos</strong></li>
+                    <li>You will be <strong>timed</strong> from <strong>start to finish</strong></li>
+                    <li>You may <strong>skip</strong> an answer, but you <strong>can't</strong> go back</li>
+                    <li>You may attempt a question <strong>multiple</strong> times</li>
+                    <li>You will be <strong>rated</strong> on: score <strong>minus</strong> your time</li>
+                    <li>If you <strong>quit</strong>, your score will <strong>not</strong> be recorded</li>
                 </ul>
                 <p><i>Good Luck!</i></p>
             </div>
         </div>
     </div>
-
 {% endblock %}

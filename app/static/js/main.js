@@ -5,7 +5,7 @@
 ==========================*/
 
 // Toggle profile tab hidden div
-$('#profile').click( (event) => {
+$('#profile').click( () => {
     $('.paper-profile').fadeToggle('fast');
 });
 
@@ -20,8 +20,8 @@ if (window.location.href.endsWith('leaderboard') || window.location.href.endsWit
     let opacity = 0;
     
     function fadeSlideIn() {
-        margin -= 5;
-        opacity += 0.050;
+        margin -= 2.5;
+        opacity += 0.025;
         element.style.marginTop = margin + 'px';
         element.style.opacity = opacity;
         
@@ -31,5 +31,5 @@ if (window.location.href.endsWith('leaderboard') || window.location.href.endsWit
     }
     
     const element = document.querySelector('.fade-slide-in');
-    const animation = setInterval(fadeSlideIn, 15);
+    const animation = setInterval(fadeSlideIn, 10);
 }

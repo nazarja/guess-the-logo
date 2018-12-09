@@ -3,26 +3,25 @@
 {% block content %}
     <div id="game" class="fade-slide-in">
 
-        <div id="brand-logo" class="with-shadow">
-            <img id="brand-image" src="{{ url_for( 'static', filename='img/Lacoste.png' ) }}" alt="">
+
+        <!-- STATS -->
+        <div id="current-game">
+            <span class="current-stats"><i class="fas fa-question-circle"></i>Question: 0 / 30</span>
+            <span class="current-stats"><i class="fas fa-stopwatch"></i>Time: 0:00</span>
+            <span class="current-stats"><i class="fas fa-check-circle"></i>Correct: 0 / 30</span>
         </div>
 
+
+        <!-- LOGO IMAGE -->
+        <img id="brand-image" src="{{ url_for( 'static', filename='img/Lacoste.png' ) }}" alt="">
+
+
+
         <!-- ANSWER FORM -->
-        <form action="" method="POST" autocomplete="off" novalidate>
-            <!-- ANWSER INPUT -->
-            <div class="input">{{ answer_form.answer.label }}<br />{{ answer_form.answer() }}</div>
-            <!-- hide if no errors -->
-            {% if answer_form.answer.errors %}
-            <div class="error">{% for error in answer_form.answer.errors %}<span>{{ error }}</span>{% endfor %}</div>
-            {% endif %}
-
-            <!-- SUBMIT -->
-            <div class="submit-button">{{ answer_form.submit(class_="green-button") }}</div>
+        <form id="game-form" action="" method="POST" autocomplete="off" novalidate>
+            <div id="answer-input" class="input">{{ answer_form.answer.label }}<br />{{ answer_form.answer() }}</div>
+            <div>{{ answer_form.submit(class_="green-button") }}</div>
+            <a href="{{ url_for('game') }}"><button class="red-button">pass</button></a>
         </form>
-
-
-
-        <!-- SKIP QUESTION -->
-        <a id="skip-question" href="{{ url_for('game') }}"><button class="red-button">pass</button></a>
     </div>
 {% endblock %}

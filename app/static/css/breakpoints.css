@@ -1,0 +1,72 @@
+
+
+/*==========================
+    340 PX
+==========================*/
+
+@media screen and (min-width: 340px) {
+    #nav-right {
+        font-size: 1em;
+    }
+}
+
+
+/*==========================
+    500 PX
+==========================*/
+
+@media screen and (min-width: 500px) {
+    .current-stats {
+        display: inline-block;
+    }
+}
+
+
+/*==========================
+    640 PX
+==========================*/
+
+@media screen and (min-width: 640px) {
+
+    header {
+        margin-bottom: 60px;
+    }
+    
+    #nav-logo {
+        font-size: 3vmin;
+    }
+    
+    #nav-right {
+        font-size: 1rem;
+    }
+    
+    
+    #index-wrapper {
+        display: flex;
+    }
+    
+    .index-right, .index-left {
+        margin-top: 0;
+    }
+
+    .index-left {
+        width: 40%;
+    }
+    
+    .index-right {
+        margin-left: 4%;
+    }
+}
+
+
+
+/*==========================
+    1024 PX
+==========================*/
+
+@media screen and (min-width: 1024px) {
+    .flask-error {
+        font-size: 3em;
+    }
+}
+

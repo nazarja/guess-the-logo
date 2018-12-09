@@ -27,7 +27,7 @@ def index():
 
 
 # game
-@app.route('/game')
+@app.route('/game', methods=['GET', 'POST'])
 def game():
     answer_form = AnswerForm()
     return render_template('game.html', endpoint="game", answer_form=answer_form)

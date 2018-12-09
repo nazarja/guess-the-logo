@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="fade-slide-in">
+    <div id="leaderboard" class="fade-slide-in">
         <h2 class="heading">Leaderboard</h2>
         
+
         <!-- ITERATE LEADERBOARD -->
         <table id="table">
             <thead>
@@ -28,12 +29,12 @@
             </tbody>
         </table>
 
+
         <!-- GO TO GAME BUTTON -->
         {% if 'user' in session %}
             <a href="{{ url_for('game') }}"><button class="blue-button">play game</button></a>
         {% else %}
             <a href="{{ url_for('index') }}"><button class="blue-button">login</button></a>
         {% endif %}
-
     </div>
 {% endblock %}
