@@ -9,6 +9,8 @@
     <div id="nav-right">
         {% if endpoint == 'leaderboard' %}
             <a id="nav-home" href="{{ url_for('index') }}">Home</a>
+        {% elif endpoint == 'game'%}
+            <a id="nav-home" href="{{ url_for('index') }}">End Game</a>
         {% else %}
             <a id="nav-leaderboard" href="{{ url_for('leaderboard') }}">Leaderboard</a>
         {% endif %}

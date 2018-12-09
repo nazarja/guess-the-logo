@@ -54,8 +54,8 @@
     /* Container for clouds */
     #clouds {
         display: block;
-        position: relative;
-        top: 200px;
+        position: absolute;
+        bottom: 125px;
         z-index: -1;
     }
     .cloud {

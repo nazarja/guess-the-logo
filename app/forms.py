@@ -20,3 +20,14 @@ class LoginForm(FlaskForm):
     def validate_password(self, password):
         if len(password.data) < 4:
             raise ValidationError('password must be longer than 4 characters')
+
+
+
+
+
+
+# Answer / Questions Form
+class AnswerForm(FlaskForm):
+    # Fields
+    answer = StringField('answer', validators=[DataRequired()])
+    submit = SubmitField('submit')

@@ -233,6 +233,35 @@ nav div {
 
 
 /*==========================
+    404 / 500 ERRORS
+==========================*/
+
+#brand-logo {
+    width: auto;
+    height: 25vh;
+    padding: 30px;
+    margin: auto;
+    border-radius: 10px;
+    border: 2px solid black;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+#brand-image {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#skip-question {
+    text-decoration: none;
+}
+
+
+
+
+
+/*==========================
     LEADERBOARD
 ==========================*/
 

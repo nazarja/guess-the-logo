@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template, redirect, url_for, session, request
-from app.forms import LoginForm
+from app.forms import LoginForm, AnswerForm
 from app.helpers import get_leaderboard
 
 
@@ -21,6 +21,16 @@ def index():
 
     # default - render index.html
     return render_template('index.html', login_form=login_form, endpoint="index")
+
+
+#=====================#
+
+
+# game
+@app.route('/game')
+def game():
+    answer_form = AnswerForm()
+    return render_template('game.html', endpoint="game", answer_form=answer_form)
 
 
 #=====================#

@@ -31,5 +31,5 @@ if (window.location.href.endsWith('leaderboard') || window.location.href.endsWit
     }
     
     const element = document.querySelector('.fade-slide-in');
-    const animation = setInterval(fadeSlideIn, 10);
+    const animation = setInterval(fadeSlideIn, 15);
 }
