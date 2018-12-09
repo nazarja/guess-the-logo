@@ -30,9 +30,9 @@
 
         <!-- GO TO GAME BUTTON -->
         {% if 'user' in session %}
-            <a href="{{ url_for('index') }}"><button class="blue-button">PLAY GAME</button></a>
+            <a href="{{ url_for('index') }}"><button class="blue-button">play game</button></a>
         {% else %}
-            <a href="{{ url_for('index') }}"><button class="blue-button">LOGIN</button></a>
+            <a href="{{ url_for('index') }}"><button class="blue-button">login</button></a>
         {% endif %}
 
     </div>

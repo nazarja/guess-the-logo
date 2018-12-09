@@ -19,13 +19,13 @@
                         <div class="input">{{ login_form.username.label }}<br />{{ login_form.username() }}</div>
                         <!-- hide if no errors -->
                         {% if login_form.username.errors %}
-                            <div class="error">{% for error in login_form.username.errors %}<span>[ {{ error }} ]</span>{% endfor %}</div>
+                            <div class="error">{% for error in login_form.username.errors %}<span>{{ error }}</span>{% endfor %}</div>
                         {% endif %}
                         <!-- PASSWORD -->
                         <div class="input">{{ login_form.password.label }}<br />{{ login_form.password() }}</div>
                         <!-- hide if no errors -->
                         {% if login_form.password.errors %}
-                            <div class="error">{% for error in login_form.password.errors %}<span>[ {{ error }} ]</span>{% endfor %}</div>
+                            <div class="error">{% for error in login_form.password.errors %}<span>{{ error }}</span>{% endfor %}</div>
                         {% endif %}
                         <!-- SUBMIT -->
                         <div class="submit-button">{{ login_form.submit(class_="blue-button") }}</div>
@@ -47,7 +47,7 @@
                     <br />
 
                     <!-- GO TO GAME BUTTON -->
-                    <a href="{{ url_for('index') }}"><button class="blue-button">PLAY GAME</button></a>
+                    <a href="{{ url_for('index') }}"><button class="blue-button">play game</button></a>
                 {% endif %}
             </div>
 
