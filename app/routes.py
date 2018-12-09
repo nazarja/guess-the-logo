@@ -1,7 +1,7 @@
 from app import app
 from flask import render_template, redirect, url_for, session, request, flash
 from app.forms import LoginForm, AnswerForm
-from app.helpers import get_leaderboard, get_game
+from app.helpers import get_leaderboard, get_game, login_user, create_session_variables
 
 
 
@@ -14,14 +14,25 @@ def index():
 
     # new instance of LoginForm
     login_form = LoginForm()
+
+    # temp variables for testing
     session['game'] = get_game()
     session['index'] = 0
     session['correct'] = 0
 
-    # login in user
+    # if form is valid
     if login_form.validate_on_submit():
-        session['user'] = login_form.username.data
+        # check if user already exists and if password is correct
+        user = login_user(login_form.username.data, login_form.password.data)
 
+        # if False is return then password is incorrect
+        if not user:
+            flash('Incorrect username or password')
+            return redirect(url_for)
+        else:
+            create_session_variables(user)
+            return redirect(url_for('index'))
+        
     # default - render index.html
     return render_template('index.html', login_form=login_form, endpoint="index")
 
@@ -32,6 +43,7 @@ def index():
 # game
 @app.route('/game', methods=['GET', 'POST'])
 def game():
+
     session['index'] += 1
     answer_form = AnswerForm()
 

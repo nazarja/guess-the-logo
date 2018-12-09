@@ -1,1 +1,1 @@
-{ "users": []}
+{"users": [{"username": "sean", "password": "pbkdf2:sha256:50000$DbXrwZ1R$7c8b0e53f8437d2158d92eb0fe4c37387d9a81c5a59ae43a3bea62fca422b00d", "last_played": 0, "times_played": 0, "best_time": 0, "best_score": 0, "rating": 0, "current_time": 0, "current_score": 0, "current_rating": 0}]}
