@@ -26,7 +26,6 @@ def login_user(username, password):
 		# if no user is found, create a new user
 		# save username and password
 		with open('app/data/user.json') as user_file:
-			session['new_user'] = True
 			user = json.load(user_file)
 			user['username'] = username.lower()
 			user['password'] = generate_password_hash(password)
