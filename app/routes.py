@@ -2,6 +2,7 @@ from app import app
 from flask import render_template, redirect, url_for, session, request, flash
 from app.forms import LoginForm, AnswerForm
 from app.helpers import get_leaderboard,  login_user, create_session_variables, reset_variables, set_session_scores
+from time import time
 
 
 
@@ -12,8 +13,8 @@ from app.helpers import get_leaderboard,  login_user, create_session_variables, 
 @app.route('/index', methods=['GET', 'POST'])
 def index():
 
+    # reset variables
     if 'user' in session:
-        # reset variables
         reset_variables()
 
     # new instance of LoginForm
@@ -43,6 +44,10 @@ def index():
 @app.route('/game', methods=['GET', 'POST'])
 def game():
 
+    # protect route
+    if not 'user' in session:
+        return redirect(url_for('index'))
+
     # initialise form
     answer_form = AnswerForm()
     
@@ -67,7 +72,7 @@ def game():
     # If the game is over
     # Write users scores to file
     # redirect to leaderboard
-    if session['index'] >= 30:
+    if session['index'] >= 2:
         set_session_scores()
         return redirect(url_for('leaderboard'))
 

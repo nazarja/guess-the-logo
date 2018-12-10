@@ -2,6 +2,8 @@ import json
 from random import shuffle
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import session
+from datetime import datetime
+
 
 
 def login_user(username, password):  
@@ -88,4 +90,4 @@ def reset_variables():
 
 
 def set_session_scores():
-	pass
+	session['last_played'] = datetime.utcnow()

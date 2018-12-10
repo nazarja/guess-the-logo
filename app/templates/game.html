@@ -22,7 +22,9 @@
         <!-- ANSWER FORM -->
         <form action="" method="POST" autocomplete="off" novalidate>
             {{ answer_form.hidden_tag() }}
+
             <div id="answer-input" class="input">{{ answer_form.answer.label }}<br />{{ answer_form.answer(value="") }}</div>
+            
             {% if answer_form.answer.errors %}
             <div class="error with-shadow">{% for error in answer_form.answer.errors %}<span>{{ error }}</span>{% endfor %}</div>
             {% endif %}

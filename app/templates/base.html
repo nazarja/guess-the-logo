@@ -48,7 +48,8 @@
 
 
     <!-- JAVASCRIPT -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {{ moment.include_jquery() }}
+    {{ moment.include_moment() }}
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
