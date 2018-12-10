@@ -4,7 +4,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask import session
 from datetime import datetime
 
-
+	
+#============================================#
 
 
 def login_user(username, password):  
@@ -25,10 +26,15 @@ def login_user(username, password):
 		# if no user is found, create a new user
 		# save username and password
 		with open('app/data/user.json') as user_file:
+			session['new_user'] = True
 			user = json.load(user_file)
 			user['username'] = username.lower()
 			user['password'] = generate_password_hash(password)
 			users['users'].append(user)
+
+
+			# add new user to leaderboard
+			add_to_leaderboard(user['username'])
 
 			# seek file to overwrite
 			# Add new user to the users_file
@@ -37,32 +43,64 @@ def login_user(username, password):
 			json.dump(users, users_file)
 			return user
 
+	
+#============================================#
 
 
+def add_to_leaderboard(username):
+	with open('app/data/leaderboard.json', 'r+') as leaderboard_file:
+		leaderboard = json.load(leaderboard_file)
 
-'''
-	open json file and parse to dict,
-	use lamda function to sort by rating,
-	reverse will order by highest rating
-'''
+		user = {
+			"username": username,
+			"best_time": 0, 
+			"best_score": 0, 
+			"best_rating": 0, 
+		}
+		leaderboard['users'].append(user)
+
+		leaderboard_file.seek(0)
+		json.dump(leaderboard, leaderboard_file)
+
+	
+#============================================#
+
 
 def get_leaderboard():
-    with open('app/data/leaderboard.json') as leaderboard_file:
-        leaderboard = json.load(leaderboard_file)
-        leaderboard_list = leaderboard['leaderboard']
+	with open('app/data/leaderboard.json', 'r+') as leaderboard_file:
+		leaderboard = json.load(leaderboard_file)
 
-        # lamda learned from w3resource.com
-        leaderboard_list.sort(key=lambda x: x['rating'], reverse=True)
-        return leaderboard_list
+		if 'user' in session:
+		# if the user is already on the leaderboard
+		# and they hav a new best score
+		# update the users record
+			for user in leaderboard['users']:
+				if session['user'] == user['username']:
+					if session['best_rating'] > user['best_rating']:
+						user['best_time'] = session['best_time']
+						user['best_score'] = session['best_score']
+						user['best_rating'] = session['best_rating']
+						break
+			leaderboard_file.seek(0)
+			json.dump(leaderboard, leaderboard_file)
 
 
+		# lamda learned from w3resource.com
+		leaderboard['users'].sort(key=lambda x: x['best_rating'], reverse=True)
+		return leaderboard['users']
 
-        
+	
+#============================================#
+
+       
 def get_game():
     with open('app/data/game.json') as game_file:
         game = json.load(game_file)
         shuffle(game['game'])
         return game['game']
+
+	
+#============================================#
 
 
 def reset_variables():
@@ -73,6 +111,8 @@ def reset_variables():
 	session['current_rating'] = 0
 	session['new_game'] = 1
 
+	
+#============================================#
 
 
 def create_session_variables(user):
@@ -83,6 +123,8 @@ def create_session_variables(user):
 	session['best_score'] = user['best_score']
 	session['best_rating'] = user['best_rating']
 
+	
+#============================================#
 
 
 def set_session_scores():
@@ -103,6 +145,8 @@ def set_session_scores():
 	write_new_scores()
 
 	
+#============================================#
+
 
 def write_new_scores():
 	with open('app/data/users.json', 'r+') as users_file:
@@ -120,6 +164,10 @@ def write_new_scores():
 		# overwrite users file with updated data
 		users_file.seek(0)
 		json.dump(users, users_file)
+
+	
+#============================================#
+
 
 
 

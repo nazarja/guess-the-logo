@@ -334,6 +334,10 @@ tr:nth-child(even) {
     background-color: rgba(0,0,0,0.1);
 }
 
+#current-user-leaderboard {
+    background-color: #402B48;
+}
+
 
 
 /*==========================

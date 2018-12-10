@@ -3,7 +3,6 @@
 {% block content %}
     <div id="leaderboard" class="fade-slide-in">
         <h2 class="heading">Leaderboard</h2>
-        
 
         <!-- ITERATE LEADERBOARD -->
         <table id="table">
@@ -18,12 +17,16 @@
             </thead>
             <tbody>
                 {% for user in leaderboard %}
+                    {% if session.user == user.username %}
+                    <tr id="current-user-leaderboard">
+                    {% else %}
                     <tr>
+                    {% endif %}
                         <th scope="row">{{ loop.index }}</th> 
                         <td>{{ user.username }}</td>
                         <td>{{ user.best_time }}</td>
                         <td>{{ user.best_score }}</td>
-                        <td>{{ user.rating }}</td>
+                        <td>{{ user.best_rating }}</td>
                     </tr>
                 {% endfor %}
             </tbody>

@@ -43,13 +43,12 @@
 
     <!-- FOOTER -->
     <footer>
-        <span><i class="fas fa-code"></i> &nbsp; & &nbsp; <i class="fas fa-paint-brush"></i> &nbsp; by &nbsp;<a  id="ref-link" href="http://seanmurphy.eu">Sean Murphy</a></span>
+        <span><i class="fas fa-code"></i> &nbsp; & &nbsp; <i class="fas fa-paint-brush"></i> &nbsp; by &nbsp;<a  id="ref-link" href="http://seanmurphy.eu" target="_blank">Sean Murphy</a></span>
     </footer>
 
 
     <!-- JAVASCRIPT -->
-    {{ moment.include_jquery() }}
-    {{ moment.include_moment() }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
