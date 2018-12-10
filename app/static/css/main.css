@@ -11,6 +11,7 @@
     --green: #269687;
     --red: #9f2b32;
     --purple: #7c4598;
+    --yellow: #ffc000;
     --text-shadow: 1px 1px rgba(0,0,0,0.5);
 }
 
@@ -75,24 +76,31 @@ a:hover {
 }
 
 .flash {
-    width: fit-content;
-    background-color: #333;
-    padding: 20px;
-    border-radius: 5px;
+    max-width: 900px;
     position: absolute;
-    bottom: 70px;
+    bottom: 0;
     left: 0;
     right: 0;
+    padding: 20px;
     margin: auto;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 1.8em;
     animation-iteration-count: 1;
     animation-name: showflash;  
     animation-duration: .5s;
     animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    background-color: #333;
+}
+
+.flash .fas {
+    margin-right: 8px;
+    color: lightsalmon;
 }
 
 @keyframes showflash {
-    from {bottom: -60px}
-    to { bottom: 60px}
+    from {bottom: -80px}
+    to { bottom: 0px}
 }
 
 
@@ -193,11 +201,10 @@ nav div {
 .index-left .error {
     max-width: 100%;
     padding-left: 15px;
-    padding: 5px 5px 5px 15px;
+    padding: 8px 5px 8px 15px;
     border-radius: 4px;
     color: white;
     background-color: #333;
-    box-shadow: 0px 3px 5px 0px rgba(255,255,255,0.1);
 }
 
 .index-lef .submit-button {

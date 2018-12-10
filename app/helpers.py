@@ -1,4 +1,5 @@
-import json, random
+import json 
+from random import shuffle
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import session
 
@@ -57,7 +58,7 @@ def get_leaderboard():
 def get_game():
     with open('app/data/game.json') as game_file:
         game = json.load(game_file)
-        random.shuffle(game['game'])
+        shuffle(game['game'])
         return game['game']
 
 

@@ -30,11 +30,10 @@
         </table>
 
 
-        <!-- GO TO GAME BUTTON -->
-        {% if 'user' in session %}
-            <a href="{{ url_for('game') }}"><button class="blue-button">play game</button></a>
-        {% else %}
-            <a href="{{ url_for('index') }}"><button class="blue-button">login</button></a>
-        {% endif %}
+        <!-- GO TO HOME BUTTON -->
+        <a href="{{ url_for('index') }}">
+            <button class="blue-button">{% if 'user' in session %}home{% else %}login{% endif %}</button>
+        </a>
+       
     </div>
 {% endblock %}

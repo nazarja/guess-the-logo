@@ -21,13 +21,13 @@
                         <div class="input">{{ login_form.username.label }}<br />{{ login_form.username() }}</div>
                         <!-- hide if no errors -->
                         {% if login_form.username.errors %}
-                        <div class="error">{% for error in login_form.username.errors %}<span>{{ error }}</span>{% endfor %}</div>
+                        <div class="error with-shadow">{% for error in login_form.username.errors %}<span>{{ error }}</span>{% endfor %}</div>
                         {% endif %}
                         <!-- PASSWORD -->
                         <div class="input">{{ login_form.password.label }}<br />{{ login_form.password() }}</div>
                         <!-- hide if no errors -->
                         {% if login_form.password.errors %}
-                        <div class="error">{% for error in login_form.password.errors %}<span>{{ error }}</span>{% endfor %}</div>
+                        <div class="error with-shadow">{% for error in login_form.password.errors %}<span>{{ error }}</span>{% endfor %}</div>
                         {% endif %}
                         <!-- SUBMIT -->
                         <div class="submit-button">{{ login_form.submit(class_="blue-button") }}</div>
@@ -41,10 +41,11 @@
 
                     <!-- USER SCORES -->
                     <div id="index-user-info">
-                        <p><i class="fas fa-dice"></i>Times Played: 0</p>
-                        <p><i class="fas fa-stopwatch"></i>Best Time: 0</p>
-                        <p><i class="fas fa-hat-wizard"></i>Best Score: 0</p>
-                        <p><i class="fas fa-star"></i>Rating: 0</p>
+                        <p><i class="fas fa-calendar-alt"></i>Last Played: {{ session.last_played }}</p>
+                        <p><i class="fas fa-dice"></i>Times Played: {{ session.times_played }}</p>
+                        <p><i class="fas fa-stopwatch"></i>Best Time: {{ session.best_time }}</p>
+                        <p><i class="fas fa-hat-wizard"></i>Best Score: {{ session.best_score }}</p>
+                        <p><i class="fas fa-star"></i>Rating: {{ session.rating }}</p>
                     </div>
                     <br />
 

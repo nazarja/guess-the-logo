@@ -43,11 +43,11 @@ def index():
 @app.route('/game', methods=['GET', 'POST'])
 def game():
 
+    if session['index'] >= 30:
+        return redirect(url_for('leaderboard'))
+
     session['index'] += 1
     answer_form = AnswerForm()
-
-    print(session['game'][session['index']]['answer'])
-    print(answer_form.answer.data)
     
     if answer_form.validate_on_submit():
         pass

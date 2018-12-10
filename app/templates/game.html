@@ -7,14 +7,14 @@
         <!-- STATS -->
         <div id="current-game">
             <span class="current-stats"><i class="fas fa-question-circle"></i>Question: {{ session.index }} / 30</span>
-            <span class="current-stats"><i class="fas fa-check-circle"></i>Correct: 0 / 30</span>
+            <span class="current-stats"><i class="fas fa-check-circle"></i>Correct: {{ session.correct }} / 30</span>
             <span class="current-stats"><i class="fas fa-stopwatch"></i>Time: 0:00</span>
         </div>
 
 
         <!-- LOGO IMAGE -->
         <div id="logo-container" class="with-shadow">
-            <img id="logo-image" src="{{ url_for( 'static', filename=session.game[session.index].image_url ) }}" alt="">
+            <img id="logo-image" src="{{ url_for( 'static', filename=session.game[session.index - 1].image_url ) }}" alt="">
         </div>
 
 

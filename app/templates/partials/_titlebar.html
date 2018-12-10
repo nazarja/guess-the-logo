@@ -22,10 +22,10 @@
         <div id="profile">
             <i class="fas fa-user-circle"></i>
             <div class="paper paper-profile">
-                <p>Times Played: <span class="profile-data">N/A</span></p>
-                <p>Best Time: <span class="profile-data">N/A</span></p>
-                <p>Best Score: <span class="profile-data">N/A</span></p>
-                <p>Rating: <span class="profile-data">N/A</span></p>
+                <p>Times Played: <span class="profile-data">{{ session.times_played }}</span></p>
+                <p>Best Time: <span class="profile-data">{{ session.best_time }}</span></p>
+                <p>Best Score: <span class="profile-data">{{ session.best_score }}</span></p>
+                <p>Rating: <span class="profile-data">{{ session.rating }}</span></p>
                 <p id="logout"><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> &nbsp; Logout </a></p>
             </div>
         </div>
