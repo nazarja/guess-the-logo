@@ -2,7 +2,7 @@
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
-            <div class="flash with-shadow" role="alert"><i class="fas fa-exclamation-circle"></i>{{ message }}</div>
+            <div id="flash" class="flash with-shadow" role="alert"><i class="fas fa-exclamation-circle"></i>{{ message }}</div>
             {% endfor %}
         {% endif %}
     {% endwith %}

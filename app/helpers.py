@@ -84,6 +84,19 @@ def get_leaderboard():
 			json.dump(leaderboard, leaderboard_file)
 
 
+			# Add current user scores to leaderboard - only if its not their first time playing
+			# but dont write to file - this is for seeing last played scores
+			# against best scores
+			if session['times_played'] > 0 and session['current_rating'] != 0:
+				current_user = {
+					"username": "LAST PLAYED",
+					"best_time": session['current_time'], 
+					"best_score": session['current_score'], 
+					"best_rating": session['current_rating'], 
+				}
+				leaderboard['users'].append(current_user)
+
+
 		# lamda learned from w3resource.com
 		leaderboard['users'].sort(key=lambda x: x['best_rating'], reverse=True)
 		return leaderboard['users']

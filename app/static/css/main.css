@@ -78,7 +78,7 @@ a:hover {
 .flash {
     max-width: 900px;
     position: absolute;
-    bottom: 0;
+    bottom: -80px;
     left: 0;
     right: 0;
     padding: 20px;
@@ -88,7 +88,7 @@ a:hover {
     line-height: 1.8em;
     animation-iteration-count: 1;
     animation-name: showflash;  
-    animation-duration: .5s;
+    animation-duration: 5s;
     animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
     background-color: #333;
 }
@@ -109,8 +109,10 @@ a:hover {
 
 
 @keyframes showflash {
-    from {bottom: -80px}
-    to { bottom: 0px}
+    0% {bottom: -80px}
+    5% {bottom: 0px}
+    95% {bottom: 0px}
+    100% { bottom: -80px}
 }
 
 

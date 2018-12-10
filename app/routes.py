@@ -94,7 +94,6 @@ def game():
 # leaderboard
 @app.route('/leaderboard')
 def leaderboard():
-
     # new instance of Leaderboard
     leaderboard = get_leaderboard()
     return render_template('leaderboard.html', leaderboard=leaderboard, endpoint="leaderboard")

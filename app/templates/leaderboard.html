@@ -4,7 +4,8 @@
     <div id="leaderboard" class="fade-slide-in">
         <h2 class="heading">Leaderboard</h2>
 
-        <!-- ITERATE LEADERBOARD -->
+        
+        <!-- TOP LEADERBOARD -->
         <table id="table">
             <thead>
                 <tr>
@@ -16,8 +17,9 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- ITERATE LEADERBOARD -->
                 {% for user in leaderboard %}
-                    {% if session.user == user.username %}
+                    {% if session.user == user.username or user.username == 'LAST PLAYED' %}
                     <tr id="current-user-leaderboard">
                     {% else %}
                     <tr>
