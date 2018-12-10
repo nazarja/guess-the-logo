@@ -240,6 +240,7 @@ nav div {
 ==========================*/
 
 #game {
+    position: relative;
     max-width: 500px;
     margin: auto;
 }
@@ -282,6 +283,10 @@ nav div {
     padding-left: 30px;
 }
 
+#input {
+    width: 100%;
+}
+
 #buttons-container {
     text-align: center;
 }
@@ -289,7 +294,6 @@ nav div {
 #buttons-container  * {
     display: inline-block;
     margin-top: 5px;
-    padding-left: 10px;
     padding-bottom: 10px;
 }
 

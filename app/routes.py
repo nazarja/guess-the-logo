@@ -76,7 +76,7 @@ def game():
     # If the game is over
     # Write users scores to file
     # redirect to leaderboard
-    if session['index'] >= 2:
+    if session['index'] >= 30:
         set_session_scores()
         return redirect(url_for('leaderboard'))
 

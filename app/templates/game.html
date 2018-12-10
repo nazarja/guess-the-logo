@@ -3,16 +3,11 @@
 {% block content %}
     <div id="game" class="fade-slide-in">
 
-
         <!-- STATS -->
         <div id="current-game">
             <p class="current-stats"><i class="fas fa-question-circle"></i>Question: <strong>{{ session.index }} / 30</strong></p>
             <p class="current-stats"><i class="fas fa-check-circle"></i>Correct: <strong>{{ session.current_score }} / 30</strong></p>
             <p class="current-stats"><i class="fas fa-stopwatch"></i>Time: <strong><span id="current-time">{{ session.current_time }}</span>s</strong></p>
-        </div>
-
-        <div id="correct-twinkle">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
         </div>
 
 
@@ -28,7 +23,7 @@
             {{ answer_form.hidden_tag() }}
             
             <!-- INPUT -->
-            <div id="answer-input" class="input">{{ answer_form.answer.label }}<br />{{ answer_form.answer(value="") }}</div>
+            <div id="answer-input" class="input">{{ answer_form.answer.label }}<br />{{ answer_form.answer(value="", id="input") }}</div>
 
             <!-- ERRORS -->
             {% if answer_form.answer.errors %}
