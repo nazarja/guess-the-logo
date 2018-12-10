@@ -35,19 +35,6 @@ def login_user(username, password):
 
 
 
-        
-def create_session_variables(user):
-	session['user'] = user['username']
-	session['last_played'] = user['last_played']
-	session['times_played'] = user['times_played']
-	session['best_time'] = user['best_time']
-	session['best_score'] = user['best_score']
-	session['rating'] = user['rating']
-	session['current_time'] = user['current_time']
-	session['current_score'] = user['current_score']
-	session['current_rating'] = user['current_rating']
-
-
 
 '''
 	open json file and parse to dict,
@@ -65,9 +52,35 @@ def get_leaderboard():
         return leaderboard_list
 
 
+
         
 def get_game():
     with open('app/data/game.json') as game_file:
         game = json.load(game_file)
         random.shuffle(game['game'])
         return game['game']
+
+
+
+
+def create_session_variables(user):
+	session['user'] = user['username']
+	session['last_played'] = user['last_played']
+	session['times_played'] = user['times_played']
+	session['best_time'] = user['best_time']
+	session['best_score'] = user['best_score']
+	session['rating'] = user['rating']
+	session['current_time'] = user['current_time']
+	session['current_score'] = user['current_score']
+	session['current_rating'] = user['current_rating']
+
+
+
+
+def reset_variables():
+	session['game'] = get_game()
+	session['index'] = 0
+	session['correct'] = 0
+	session['current_time'] = 0
+	session['current_score'] = 0
+	session['current_rating'] = 0

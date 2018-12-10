@@ -1,7 +1,7 @@
 from app import app
 from flask import render_template, redirect, url_for, session, request, flash
 from app.forms import LoginForm, AnswerForm
-from app.helpers import get_leaderboard, get_game, login_user, create_session_variables
+from app.helpers import get_leaderboard,  login_user, create_session_variables, reset_variables
 
 
 
@@ -12,19 +12,18 @@ from app.helpers import get_leaderboard, get_game, login_user, create_session_va
 @app.route('/index', methods=['GET', 'POST'])
 def index():
 
+    if 'user' in session:
+        # reset variables
+        reset_variables()
+
     # new instance of LoginForm
     login_form = LoginForm()
-
-    # temp variables for testing
-    session['game'] = get_game()
-    session['index'] = 0
-    session['correct'] = 0
 
     # if form is valid
     if login_form.validate_on_submit():
         # check if user already exists and if password is correct
         user = login_user(login_form.username.data, login_form.password.data)
-
+        
         # if False is return then password is incorrect
         if not user:
             flash('Incorrect username or password')
