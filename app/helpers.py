@@ -6,6 +6,7 @@ from datetime import datetime
 
 
 
+
 def login_user(username, password):  
 	with open('app/data/users.json', 'r+') as users_file:
 		users = json.load(users_file)
@@ -90,4 +91,19 @@ def reset_variables():
 
 
 def set_session_scores():
-	session['last_played'] = datetime.utcnow()
+	# must convert datetime to string - cannot serialize datetime to JSON
+	session['last_played'] = datetime.strftime(datetime.utcnow(), '%a, %d %b, %H:%M') 
+	session['times_played'] += 1
+
+	with open('app/data/users.json', 'r+') as users_file:
+		users = json.load(users_file)
+		
+		for user in users['users']:
+			if session['user'] == user['username']:
+				user['last_played'] = session['last_played']
+				user['times_played'] = session['times_played']
+				break
+
+		# overwrite users file with updated data
+		users_file.seek(0)
+		json.dump(users, users_file)

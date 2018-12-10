@@ -7,3 +7,4 @@ I made my own
 
 https://github.com/miguelgrinberg/flask-moment/
 https://momentjs.com/docs/
+https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior

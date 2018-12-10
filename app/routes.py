@@ -2,7 +2,7 @@ from app import app
 from flask import render_template, redirect, url_for, session, request, flash
 from app.forms import LoginForm, AnswerForm
 from app.helpers import get_leaderboard,  login_user, create_session_variables, reset_variables, set_session_scores
-from time import time
+import time
 
 
 
