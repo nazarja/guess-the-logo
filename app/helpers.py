@@ -85,3 +85,7 @@ def reset_variables():
 	session['current_time'] = 0
 	session['current_score'] = 0
 	session['current_rating'] = 0
+
+
+def set_session_scores():
+	pass

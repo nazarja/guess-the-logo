@@ -14,7 +14,6 @@ class LoginForm(FlaskForm):
 
     def validate_username(self, username):
         if len(username.data) < 4:
-            print('Hello')
             raise ValidationError('username must be longer than 4 characters')
 
     def validate_password(self, password):
@@ -28,6 +27,6 @@ class LoginForm(FlaskForm):
 
 # Answer / Questions Form
 class AnswerForm(FlaskForm):
-    # Fields
-    answer = StringField('answer', validators=[DataRequired()])
+    # Answer may be left empty
+    answer = StringField('answer')
     submit = SubmitField('submit')

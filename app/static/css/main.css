@@ -98,6 +98,16 @@ a:hover {
     color: lightsalmon;
 }
 
+.error {
+    max-width: 100%;
+    padding-left: 15px;
+    padding: 8px 5px 8px 15px;
+    border-radius: 4px;
+    color: white;
+    background-color: #333;
+}
+
+
 @keyframes showflash {
     from {bottom: -80px}
     to { bottom: 0px}
@@ -135,7 +145,6 @@ nav div {
 }
 
 /* PROFILE */
-
 #nav-right {
     font-size: 0.8em;
     float: right;
@@ -146,7 +155,6 @@ nav div {
 }
 
 /* USER PROFILE TAB */
-
 .fa-user-circle {
     position: relative;
     top: 5px;
@@ -196,15 +204,6 @@ nav div {
 .index-left input[type='text'],
 .index-left input[type='password'] {
     width: 100%;
-}
-
-.index-left .error {
-    max-width: 100%;
-    padding-left: 15px;
-    padding: 8px 5px 8px 15px;
-    border-radius: 4px;
-    color: white;
-    background-color: #333;
 }
 
 .index-lef .submit-button {
@@ -272,7 +271,7 @@ nav div {
     max-width: 100%;
 }
 
-#game-form {
+#game form {
     margin-bottom: 30px;
 }
 
@@ -290,6 +289,13 @@ nav div {
     margin-top: 5px;
     padding-left: 10px;
     padding-bottom: 10px;
+}
+
+#pass-question {
+    color: white;
+    padding-left: 0;
+    margin-left: 5px;
+    text-decoration: none
 }
 
 #pass-question:hover {

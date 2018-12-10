@@ -20,12 +20,16 @@
 
 
         <!-- ANSWER FORM -->
-        <form id="game-form" action="" method="POST" autocomplete="off" novalidate>
-            <div id="answer-input" class="input">{{ answer_form.answer.label }}<br />{{ answer_form.answer() }}</div>
+        <form action="" method="POST" autocomplete="off" novalidate>
+            {{ answer_form.hidden_tag() }}
+            <div id="answer-input" class="input">{{ answer_form.answer.label }}<br />{{ answer_form.answer(value="") }}</div>
+            {% if answer_form.answer.errors %}
+            <div class="error with-shadow">{% for error in answer_form.answer.errors %}<span>{{ error }}</span>{% endfor %}</div>
+            {% endif %}
 
             <div id="buttons-container">
                 <div>{{ answer_form.submit(class_="green-button") }}</div>
-                <a id="pass-question" href="{{ url_for('game') }}"><button class="red-button">pass</button></a>
+                <a id="pass-question" class="red-button" href="{{ url_for('game') }}">pass</a>
             </div>
         </form>
     </div>

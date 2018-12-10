@@ -1,7 +1,7 @@
 from app import app
 from flask import render_template, redirect, url_for, session, request, flash
 from app.forms import LoginForm, AnswerForm
-from app.helpers import get_leaderboard,  login_user, create_session_variables, reset_variables
+from app.helpers import get_leaderboard,  login_user, create_session_variables, reset_variables, set_session_scores
 
 
 
@@ -43,14 +43,37 @@ def index():
 @app.route('/game', methods=['GET', 'POST'])
 def game():
 
-    if session['index'] >= 30:
-        return redirect(url_for('leaderboard'))
-
-    session['index'] += 1
+    # initialise form
     answer_form = AnswerForm()
     
+    # check submitted answer
     if answer_form.validate_on_submit():
-        pass
+        # if answer is correct
+        if session['game'][session['index'] - 1]['answer'] ==  answer_form.answer.data.lower():
+            session['correct'] += 1
+        else:
+            if not answer_form.answer.data:
+                # if answer is empty
+                flash(f'answer field cannot be empty')
+            else:
+                # if answer is wrong
+                flash(f'Incorrect answer! You guessed {answer_form.answer.data}, try again..')
+
+            # return the same question
+            # prevent index increasing
+            session['index'] -= 1
+            return redirect(url_for('game'))
+
+    # If the game is over
+    # Write users scores to file
+    # redirect to leaderboard
+    if session['index'] >= 30:
+        set_session_scores()
+        return redirect(url_for('leaderboard'))
+
+    # increase index pagination
+    session['index'] += 1
+
     
     # default - render game.html
     return render_template('game.html', endpoint="game", answer_form=answer_form)
