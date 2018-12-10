@@ -2,7 +2,7 @@ from app import app
 from flask import render_template, redirect, url_for, session, request, flash
 from app.forms import LoginForm, AnswerForm
 from app.helpers import get_leaderboard,  login_user, create_session_variables, reset_variables, set_session_scores
-import time
+import time, math
 
 
 
@@ -48,6 +48,10 @@ def game():
     if not 'user' in session:
         return redirect(url_for('index'))
 
+    if session['new_game'] == 1:
+        session['new_game'] = 0
+        session['start_time'] = time.time()
+
     # initialise form
     answer_form = AnswerForm()
     
@@ -55,7 +59,7 @@ def game():
     if answer_form.validate_on_submit():
         # if answer is correct
         if session['game'][session['index'] - 1]['answer'] ==  answer_form.answer.data.lower():
-            session['correct'] += 1
+            session['current_score'] += 1
         else:
             if not answer_form.answer.data:
                 # if answer is empty
@@ -78,8 +82,8 @@ def game():
 
     # increase index pagination
     session['index'] += 1
+    session['current_time'] = round(time.time() - session['start_time'])
 
-    
     # default - render game.html
     return render_template('game.html', endpoint="game", answer_form=answer_form)
 

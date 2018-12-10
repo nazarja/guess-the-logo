@@ -1,4 +1,4 @@
-import json 
+import json, time, math 
 from random import shuffle
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import session
@@ -65,6 +65,14 @@ def get_game():
         return game['game']
 
 
+def reset_variables():
+	session['game'] = get_game()
+	session['index'] = 0
+	session['current_time'] = 0
+	session['current_score'] = 0
+	session['current_rating'] = 0
+	session['new_game'] = 1
+
 
 
 def create_session_variables(user):
@@ -73,28 +81,30 @@ def create_session_variables(user):
 	session['times_played'] = user['times_played']
 	session['best_time'] = user['best_time']
 	session['best_score'] = user['best_score']
-	session['rating'] = user['rating']
-	session['current_time'] = user['current_time']
-	session['current_score'] = user['current_score']
-	session['current_rating'] = user['current_rating']
+	session['best_rating'] = user['best_rating']
 
-
-
-
-def reset_variables():
-	session['game'] = get_game()
-	session['index'] = 0
-	session['correct'] = 0
-	session['current_time'] = 0
-	session['current_score'] = 0
-	session['current_rating'] = 0
 
 
 def set_session_scores():
 	# must convert datetime to string - cannot serialize datetime to JSON
 	session['last_played'] = datetime.strftime(datetime.utcnow(), '%a, %d %b, %H:%M') 
 	session['times_played'] += 1
+	session['current_time'] = round(time.time() - session['start_time'])
+	
+	session['current_rating'] = (session['current_score'] * 1000) - (session['current_time'] * 10)
+	print(session['current_rating'])
 
+	if session['best_rating'] < session['current_rating']:
+		session['best_time'] = session['current_time']
+		session['best_score'] = session['current_score']
+		session['best_rating'] = session['current_rating']
+	
+	# write new data to user dict for next login
+	write_new_scores()
+
+	
+
+def write_new_scores():
 	with open('app/data/users.json', 'r+') as users_file:
 		users = json.load(users_file)
 		
@@ -102,8 +112,14 @@ def set_session_scores():
 			if session['user'] == user['username']:
 				user['last_played'] = session['last_played']
 				user['times_played'] = session['times_played']
+				user['best_time'] = session['best_time']
+				user['best_score'] = session['best_score']
+				user['best_rating'] = session['best_rating']
 				break
 
 		# overwrite users file with updated data
 		users_file.seek(0)
 		json.dump(users, users_file)
+
+
+

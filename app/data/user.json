@@ -5,8 +5,5 @@
     "times_played": 0,
     "best_time": 0,
     "best_score": 0,
-    "rating": 0,
-    "current_time": 0,
-    "current_score": 0,
-    "current_rating": 0
+    "best_rating": 0
 }

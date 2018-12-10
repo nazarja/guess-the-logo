@@ -33,3 +33,17 @@ if (window.location.href.endsWith('leaderboard') || window.location.href.endsWit
     const element = document.querySelector('.fade-slide-in');
     const animation = setInterval(fadeSlideIn, 10);
 }
+
+
+
+/*==========================
+    CURRENT GAME TIME TICK
+==========================*/
+
+if (window.location.href.endsWith('game')) {
+    const currentTime = document.querySelector('#current-time');
+    setInterval( () => {
+        let seconds = parseInt(currentTime.innerText) + 1;
+        currentTime.innerHTML = seconds;
+    }, 1000);
+}

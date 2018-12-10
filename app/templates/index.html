@@ -41,11 +41,11 @@
 
                     <!-- USER SCORES -->
                     <div id="index-user-info">
-                        <p><i class="fas fa-calendar-alt"></i>Last Played: {{ session.last_played }}</p>
-                        <p><i class="fas fa-dice"></i>Times Played: {{ session.times_played }}</p>
-                        <p><i class="fas fa-stopwatch"></i>Best Time: {{ session.best_time }}</p>
-                        <p><i class="fas fa-hat-wizard"></i>Best Score: {{ session.best_score }}</p>
-                        <p><i class="fas fa-star"></i>Rating: {{ session.rating }}</p>
+                        <p><i class="fas fa-calendar-alt"></i>Last Played: <strong>{{ session.last_played }}</strong></p>
+                        <p><i class="fas fa-dice"></i>Times Played: <strong>{{ session.times_played }}</strong></p>
+                        <p><i class="fas fa-stopwatch"></i>Best Time: <strong>{{ session.best_time }}s</strong></p>
+                        <p><i class="fas fa-hat-wizard"></i>Best Score: <strong>{{ session.best_score }}</strong></p>
+                        <p><i class="fas fa-star"></i>Best Rating: <strong>{{ session.best_rating }}</strong></p>
                     </div>
                     <br />
 
