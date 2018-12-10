@@ -28,7 +28,7 @@ def index():
         # if False is return then password is incorrect
         if not user:
             flash('Incorrect username or password')
-            return redirect(url_for)
+            return redirect(url_for('index'))
         else:
             create_session_variables(user)
             return redirect(url_for('index'))
