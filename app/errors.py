@@ -3,7 +3,6 @@ from flask import render_template, request, url_for
 import json
 
 
-
 # handle 404 error - page not found
 @app.errorhandler(404)
 def not_found_error(error):
