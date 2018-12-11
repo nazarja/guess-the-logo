@@ -19,10 +19,37 @@
 *   TOGGLE USER PROFILE TAB - ON / OFF
 *======================================*/
 
-$('#profile').click( () => {
-    $('.paper-profile').fadeToggle('fast');
-});
 
+// check if element is visible in the dom
+// if not check takes place, console errors will occur as 
+// element cannot be assigned if it does not exist
+
+function checkForProfile() {
+
+    // if element exists on page, call toggleProfile
+    if (document.querySelector('#profile')) {
+        toggleProfile();
+    };
+};
+// run on page load
+checkForProfile();
+
+
+
+// toggle the user profile visibility
+function toggleProfile() {
+    const profile = document.querySelector('#profile');
+    const paperProfile = document.querySelector('.paper-profile');
+    
+    // need to set style with js otherwise event only happens on second click
+    paperProfile.style.display = 'none';
+
+    // onclick function - show / hide profile tab
+    profile.onclick = () => {
+        if (paperProfile.style.display == 'none') paperProfile.style.display = 'block';
+        else paperProfile.style.display = 'none';
+    };
+};
 
 
 /*======================================
