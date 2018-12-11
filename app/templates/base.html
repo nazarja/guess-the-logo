@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- META -->
+    <!-- META DATA -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Play the Guess the Logo Quiz, How well do you know your brands? Think you can guess all 30 logos?">
+
+    <!-- FAVICON -->
     <link rel="icon" href="{{ url_for('static', filename='assets/favicon.png') }}" sizes="32x32">
+
+    <!-- TITLE -->
     <title>Guess The Logo</title>
     
-    <!-- CSS -->
+    <!-- CSS: INCLUDES: FONT-AWESOME | MICRO-FRAMEWORK |  CUSTOM CSS | BREAKPOINTS | CLOUDS ANIMATION CSS-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/flat-remix.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/breakpoints.css') }}">
-    <link rel="stylesheet" media="screen and (min-width: 1024px)" href="{{ url_for('static', filename='css/clouds.css') }}">
+    <link rel="stylesheet" media="screen and (min-width: 1280px)" href="{{ url_for('static', filename='css/clouds.css') }}">
 </head>
 <body>
 
@@ -22,7 +26,7 @@
     <!-- HEADER -->
     <header>
         <nav>
-            <!-- TITLEBAR -->
+            <!-- NAVIGATION / TITLEBAR -->
             {% include 'partials/_titlebar.html' %}
         </nav>
     </header>
@@ -30,6 +34,8 @@
 
     <!-- MAIN -->
     <main>
+
+        <!-- MAIN-CONTENT GOES HERE -->
         {% block content %}
         {% endblock %}
 
@@ -43,7 +49,11 @@
 
     <!-- FOOTER -->
     <footer>
-        <span><i class="fas fa-code"></i> &nbsp; & &nbsp; <i class="fas fa-paint-brush"></i> &nbsp; by &nbsp;<a  id="ref-link" href="http://seanmurphy.eu" target="_blank">Sean Murphy</a></span>
+        <span>
+            <!-- LINK TO PERSONAL PORTFOLIO -->
+            <i class="fas fa-code"></i> &nbsp; & &nbsp; <i class="fas fa-paint-brush"></i> &nbsp; by &nbsp;
+            <a  id="ref-link" href="http://seanmurphy.eu" target="_blank">Sean Murphy</a>
+        </span>
     </footer>
 
 

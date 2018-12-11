@@ -4,11 +4,10 @@
     <div id="index">
         <div id="index-wrapper">
 
-
             <!-- LEFT CONTENT -->
             <div class="index-left index-content">
 
-                <!-- LOGIN / REGISTER FORM -->
+                <!-- LOGIN / REGISTER FORM - ONLY DISPLAYED IF USER IS NOT LOGGED IN -->
                 {% if not 'user' in session%}
                     <h2 class="heading">Login or Register</h2>
 
@@ -34,8 +33,7 @@
                     </form>
 
 
-
-                <!-- USER INFORMATION / PLAY GAME -->
+                <!-- USER INFORMATION / PLAY GAME - ONLY DISPLAYED WHEN USER IS LOGGED IN -->
                 {% else %}
                     <h2 class="heading">Welcome, {{ session.user.capitalize() }}</h2>
 
@@ -56,8 +54,7 @@
             </div>
 
 
-
-            <!-- RIGHT CONTENT / GAME RULES-->
+            <!-- RIGHT CONTENT / GAME RULES -->
             <div class="index-right index-content">
                 <h2 class="heading">How To Play</h2>
                 <ul>

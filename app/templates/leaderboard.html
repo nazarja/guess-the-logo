@@ -17,7 +17,7 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- ITERATE LEADERBOARD -->
+                <!-- ITERATE LEADERBOARD - APPLY DIFFERENT CLASS IF USER IS IN THAT ROW -->
                 {% for user in leaderboard %}
                     {% if session.user == user.username or user.username == 'LAST PLAYED' %}
                     <tr id="current-user-leaderboard">

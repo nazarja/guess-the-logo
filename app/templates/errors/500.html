@@ -2,10 +2,16 @@
 
 {% block content %}
     <div class="flask-error">
+        <!-- ROTATING GLOBE -->
         <i class="fas fa-globe-americas"></i>
-        <p>Oh no, you broke the Internet. </p>
 
+        <!-- TEXT -->
+        <p>Oh no, you broke the Internet. </p>
         <p>Wait .. its us, not you! Just a 500 internal server error!</p>
-        <a href="{{ url_for('index') }}"><button class="blue-button">home</button></a>
+
+        <!-- HOME BUTTON -->
+        <a href="{{ url_for('index') }}">
+            <button class="blue-button">home</button>
+        </a>
     </div>
 {% endblock %}
