@@ -80,9 +80,9 @@ def index():
 @app.route('/game', methods=['GET', 'POST'])
 def game():
 
-    # protect route - if user is not logged in or tries to access the game page directly
+    # protect route - if user is not logged in 
     # they will be redirect back to the index page
-    if not 'user' in session or request.referrer == None:
+    if not 'user' in session:
         return redirect(url_for('index'))
 
 
