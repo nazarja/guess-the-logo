@@ -26,7 +26,8 @@ from datetime import datetime
 '''
 
 
-def login_user(username, password):  
+def login_user(username, password, choice): 
+
 	with open('app/data/users.json', 'r+') as users_file:
 		users = json.load(users_file)
 
@@ -36,6 +37,9 @@ def login_user(username, password):
 			# if the username exists then check the password matches
 			if user['username'] == username.lower():
 
+				if choice == 'register':
+					return False
+
 				# using werkzeug.security function
 				if check_password_hash(user['password'], password):
 					# if password is ok return the user
@@ -43,6 +47,8 @@ def login_user(username, password):
 				# if password is incorrect - return false
 				return False
 
+		if choice == 'login':
+			return False
 
 		# if no user is found, create a new user
 		# and save their username and password

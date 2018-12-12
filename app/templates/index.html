@@ -9,13 +9,19 @@
 
                 <!-- LOGIN / REGISTER FORM - ONLY DISPLAYED IF USER IS NOT LOGGED IN -->
                 {% if not 'user' in session%}
-                    <h2 class="heading">Login or Register</h2>
+                    <h2 class="heading">Login | Register</h2>
                     
 
                     <!-- FORM -->
                     <form action="" method="POST" autocomplete="off" novalidate>
                         {{ login_form.hidden_tag() }}
 
+                        <!-- RADIO- LOGIN OR REGISTER -->
+                        <div class="radio">{{ login_form.login_or_register() }}</div>
+                        <!-- hide if no errors -->
+                        {% if login_form.login_or_register.errors %}
+                        <div class="error with-shadow">{% for error in login_form.login_or_register.errors %}<span>{{ error }}</span>{% endfor %}</div>
+                        {% endif %}
                         <!-- USERNAME -->
                         <div class="input">{{ login_form.username.label }}<br />{{ login_form.username() }}</div>
                         <!-- hide if no errors -->
@@ -31,8 +37,6 @@
                         <!-- SUBMIT -->
                         <div class="submit-button">{{ login_form.submit(class_="blue-button") }}</div>
                     </form>
-                    <p id="disclaimer">Not registered yet? <br />Just login ... your first login will register you!</p>
-
 
 
 

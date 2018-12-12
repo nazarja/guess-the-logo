@@ -31,7 +31,7 @@
     /* hide scroll bar on overflow */
     /* Also causes a window resizing issue */
     body {
-        overflow: hidden;
+        overflow-x: hidden;
     }
 
     /* div container for the clouds */

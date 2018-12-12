@@ -112,9 +112,10 @@ a:hover {
 */
 
 .flash {
+    opacity: 0;
     max-width: 900px;
     position: absolute;
-    bottom: -80px;
+    bottom: 7px;
     left: 0;
     right: 0;
     padding: 20px;
@@ -136,10 +137,10 @@ a:hover {
 
 /* Keyframes animation for flask flash */
 @keyframes showflash {
-    0% { bottom: -80px; }
-    5% { bottom: 0px; }
-    95% { bottom: 0px; }
-    100% { bottom: -80px; }
+    0% { bottom: 0px; opacity: 0.1;}
+    5% { bottom: 70px; opacity: 1;}
+    95% { bottom: 70px; opacity: 0.1;}
+    100% {  bottom: 0px; opacity: 0; }
 }
 
 /*===================
@@ -282,10 +283,14 @@ nav div {
 *   FORM CONTENT - LEFT
 *===================*/
 
-#disclaimer {
-    position: relative;
-    top: 15px;
-    font-size: 0.7rem;
+
+.index-left ul {
+    padding-left: 0;
+}
+
+.index-left li {
+    display: inline-block;
+    width: 120px;
 }
 
 .index-left input[type='text'],

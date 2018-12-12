@@ -40,11 +40,15 @@ def index():
         # call login_user function to either validate user or register new user
         # form username and password are passed to helper function
         # will return the user dict is valid - else will retun false if login failed
-        user = login_user(login_form.username.data, login_form.password.data)
+        user = login_user(login_form.username.data, login_form.password.data, login_form.login_or_register.data)
         
         # if user is false then password must be incorrect
         if not user:
-            flash('Incorrect username or password')
+
+            if (login_form.login_or_register.data == 'register'):
+                flash('That username is already in use')
+            else:
+                flash('Incorrect username or password')
             return redirect(url_for('index'))
 
         # otherwise the user is logged in and all session variables will be created 

@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, RadioField
 from wtforms.validators import DataRequired, ValidationError
 
 '''
@@ -15,6 +15,7 @@ class LoginForm(FlaskForm):
     # Fields - require some validation
     username = StringField('username', validators=[DataRequired()])
     password = PasswordField('password', validators=[DataRequired()])
+    login_or_register = RadioField('login or register', choices=[('login','login'),('register','register')], validators=[DataRequired()])
     submit = SubmitField('submit')
 
     '''
