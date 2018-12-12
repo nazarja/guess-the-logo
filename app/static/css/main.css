@@ -281,6 +281,12 @@ nav div {
 *   FORM CONTENT - LEFT
 *===================*/
 
+#disclaimer {
+    position: relative;
+    top: 15px;
+    font-size: 0.7rem;
+}
+
 .index-left input[type='text'],
 .index-left input[type='password'] {
     width: 100%;

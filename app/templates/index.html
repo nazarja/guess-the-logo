@@ -10,7 +10,7 @@
                 <!-- LOGIN / REGISTER FORM - ONLY DISPLAYED IF USER IS NOT LOGGED IN -->
                 {% if not 'user' in session%}
                     <h2 class="heading">Login or Register</h2>
-
+                    
 
                     <!-- FORM -->
                     <form action="" method="POST" autocomplete="off" novalidate>
@@ -31,6 +31,9 @@
                         <!-- SUBMIT -->
                         <div class="submit-button">{{ login_form.submit(class_="blue-button") }}</div>
                     </form>
+                    <p id="disclaimer">Not registered yet? <br />Just login ... your first login will register you!</p>
+
+
 
 
                 <!-- USER INFORMATION / PLAY GAME - ONLY DISPLAYED WHEN USER IS LOGGED IN -->
