@@ -1,7 +1,7 @@
 import json, time, math 
 from random import shuffle
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask import session
+from flask import session, redirect
 from datetime import datetime
 
 
@@ -228,28 +228,31 @@ def create_session_variables(user):
 
 def set_session_scores():
 	
-	# must convert datetime to string - cannot serialize datetime to JSON
-	session['last_played'] = datetime.strftime(datetime.utcnow(), '%a, %d %b, %H:%M') 
-	session['times_played'] += 1
+	# only if a game has been started should scores be accessed
+	if session['current_score'] > 0:
 
-	# game time elapsed is equal to starting time - current time
-	session['current_time'] = round(time.time() - session['start_time'])
-	
+		# must convert datetime to string - cannot serialize datetime to JSON
+		session['last_played'] = datetime.strftime(datetime.utcnow(), '%a, %d %b, %H:%M') 
+		session['times_played'] += 1
 
-	# final rating is based on:
-	# answers correct * 1000 minus time * 10
-	session['current_rating'] = (session['current_score'] * 1000) - (session['current_time'] * 10)
+		# game time elapsed is equal to starting time - current time
+		session['current_time'] = round(time.time() - session['start_time'])
+		
+
+		# final rating is based on:
+		# answers correct * 1000 minus time * 10
+		session['current_rating'] = (session['current_score'] * 1000) - (session['current_time'] * 10)
 
 
-	# only if the last game played if better than the best score
-	# should the best scores by updated
-	if session['best_rating'] < session['current_rating']:
-		session['best_time'] = session['current_time']
-		session['best_score'] = session['current_score']
-		session['best_rating'] = session['current_rating']
-	
-	# write new data to user dict for next login
-	write_new_scores()
+		# only if the last game played if better than the best score
+		# should the best scores by updated
+		if session['best_rating'] < session['current_rating']:
+			session['best_time'] = session['current_time']
+			session['best_score'] = session['current_score']
+			session['best_rating'] = session['current_rating']
+		
+		# write new data to user dict for next login
+		write_new_scores()
 
 	
 #============================================#

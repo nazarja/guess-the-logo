@@ -150,6 +150,11 @@ def game():
 @app.route('/leaderboard')
 def leaderboard():
 
+    # if the game is ended early by the user
+    # end the game and reset variables
+    if 'user' in session:
+        set_session_scores()
+
     # get a new instance of the Leaderboard
     leaderboard = get_leaderboard()
 
