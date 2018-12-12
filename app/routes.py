@@ -25,7 +25,6 @@ from app.helpers import get_leaderboard,  login_user, create_session_variables, 
 
 # index
 @app.route('/', methods=['GET', 'POST'])
-@app.route('/index', methods=['GET', 'POST'])
 def index():
 
     # when a logged in user returns to the index page
