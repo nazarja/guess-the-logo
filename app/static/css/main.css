@@ -247,6 +247,7 @@ nav div {
 .paper-profile {
     display: none;
     position: absolute;
+    z-index: 10;
     top: 55px;
     right: 0;
     height: 200px;
