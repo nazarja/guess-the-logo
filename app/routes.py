@@ -4,7 +4,6 @@ from flask import render_template, redirect, url_for, session, request, flash
 from app.forms import LoginForm, AnswerForm
 from app.helpers import get_leaderboard,  login_user, create_session_variables, reset_variables, set_session_scores
 
-
 '''
     In an attempt to keep each route as succinct as possible,
     I have created and imported helper function from helper.py

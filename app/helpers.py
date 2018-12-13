@@ -37,6 +37,8 @@ def login_user(username, password, choice):
 			# if the username exists then check the password matches
 			if user['username'] == username.lower():
 
+				# if the user was registering
+				# then the username must be taken
 				if choice == 'register':
 					return False
 
@@ -47,6 +49,9 @@ def login_user(username, password, choice):
 				# if password is incorrect - return false
 				return False
 
+		# if the user was logging in
+		# then they have entered a username 
+		# that does not exist
 		if choice == 'login':
 			return False
 
@@ -194,6 +199,7 @@ def reset_variables():
 	session['current_score'] = 0
 	session['current_rating'] = 0
 	session['new_game'] = 1
+	session['start_time'] = 0
 
 	
 #============================================#
@@ -229,7 +235,7 @@ def create_session_variables(user):
 def set_session_scores():
 	
 	# only if a game has been started should scores be accessed
-	if session['current_score'] > 0:
+	if session['start_time'] > 0:
 
 		# must convert datetime to string - cannot serialize datetime to JSON
 		session['last_played'] = datetime.strftime(datetime.utcnow(), '%a, %d %b, %H:%M') 
