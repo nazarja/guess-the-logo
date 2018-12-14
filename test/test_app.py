@@ -7,9 +7,9 @@ from selenium import webdriver
 
 #================================#
 
-# disable CSRF for Testing
+#disable CSRF for Testing
 app.config['WTF_CSRF_ENABLED'] = False
-app.config['SECRET_KEY'] = 'secret_key'
+app.config['SECRET_KEY'] = 'SECRET_KEY_SK'
 new_user = {}
 
 #================================#

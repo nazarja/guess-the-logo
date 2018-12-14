@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 '''
-	This helper file serves as a location for all functions whhich will be 
+	This helper file serves as a location for all functions which will be 
 	called upon by tthe relevent route functions.
 
 	Most operation involve reading and wrting to json files or 
@@ -235,7 +235,7 @@ def create_session_variables(user):
 def set_session_scores():
 	
 	# only if a game has been started should scores be accessed
-	if session['start_time'] > 0:
+	if session['current_score'] > 0:
 
 		# must convert datetime to string - cannot serialize datetime to JSON
 		session['last_played'] = datetime.strftime(datetime.utcnow(), '%a, %d %b, %H:%M') 
@@ -283,7 +283,6 @@ def write_new_scores():
 				user['best_time'] = session['best_time']
 				user['best_score'] = session['best_score']
 				user['best_rating'] = session['best_rating']
-				break
 
 		# overwrite users file with updated data
 		users_file.seek(0)

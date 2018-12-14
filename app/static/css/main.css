@@ -112,10 +112,9 @@ a:hover {
 */
 
 .flash {
-    opacity: 0;
     max-width: 900px;
     position: absolute;
-    bottom: 7px;
+    top: -70px;
     left: 0;
     right: 0;
     padding: 20px;
@@ -137,10 +136,10 @@ a:hover {
 
 /* Keyframes animation for flask flash */
 @keyframes showflash {
-    0% { bottom: 0px; opacity: 0.1;}
-    5% { bottom: 70px; opacity: 1;}
-    95% { bottom: 70px; opacity: 0.1;}
-    100% {  bottom: 0px; opacity: 0; }
+    0% { top: -70px;}
+    5% { top: 0px;}
+    95% { top: 0px;}
+    100% {  top: -70px;}
 }
 
 /*===================
