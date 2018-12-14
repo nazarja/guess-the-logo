@@ -1,6 +1,6 @@
 from flask import Flask
 from config import Config
-# from flask_sslify import SSLify
+from flask_sslify import SSLify
 
 '''
     initalise application and imported modules
@@ -14,7 +14,7 @@ from config import Config
 # initialise modules
 app = Flask(__name__)
 app.config.from_object(Config)
-# sslify = SSLify(app)
+sslify = SSLify(app)
 
 # import local modules
 from app import routes, errors
