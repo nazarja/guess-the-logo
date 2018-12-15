@@ -53,10 +53,6 @@ Throughout the game I have implement score and time tracking, which I think is b
 
 ![site progression](./app/static/assets/wireframes/site-progression.png "site progression")
 
-##### Clouds
-
-![clouds](./app/static/assets/wireframes/cloud.png "clouds")  
-
 ---  
 
 ## Features  
